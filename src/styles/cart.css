@@ -1,0 +1,21 @@
+.cart_body {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.products_list {
+display: inline-block;
+border-right-color: black;
+border-right-width: 100px;
+width: 70%;
+height: 93vh;
+position: relative;
+float: left;
+}
+.cart_div {
+    width: 30%;
+    height: 93vh;
+    position: relative;
+    float: right;
+}

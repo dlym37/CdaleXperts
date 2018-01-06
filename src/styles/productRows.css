@@ -1,0 +1,57 @@
+.mainDiv {
+    display: flex;
+    align-content: space-between;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+/* All the filter things */
+.filterRow {
+    width: 25%;
+    display: flex;
+    align-content: space-between;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+}
+
+.filterBox{
+    width: 80%;
+    height: 60%;
+    background-color: white;
+    border-radius: 15px;
+    position: relative;
+    top: 15%;
+    flex-basis: 23%;
+}
+.filterBox h4{
+    margin: 10px;
+} 
+.filterList {
+    list-style-type: none;
+}
+hr {
+    width: 80%;
+}
+/* All the product row stuff */
+.productRow{
+    width: 25%;
+    display: flex;
+    align-content: space-between;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+}
+
+.productBox{
+    width: 80%;
+    height: 20%;
+    background-color: white;
+    border-radius: 15px;
+    position: relative;
+    top: 15%;
+    margin: 10px;
+}
+

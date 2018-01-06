@@ -1,0 +1,86 @@
+.dropDown_Title {
+    position: relative;
+    display: flex;
+    
+  }
+  .footer_tab {
+    width: 12%;
+    height: 7vh;
+    background: white;
+    display: flex;
+    justify-content: center;
+    float: right;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    border-top-left-radius: 15px;
+    border: none;
+    cursor: pointer;
+    justify-content: space-around;
+    
+  }
+  .footer_tab h3 {
+    color: black; 
+    display: flex;
+    position: relative;
+    justify-content: center;
+  }
+  .footer {
+    position: fixed;
+    top: 80vh;
+    height: 40%;
+    width: 100%;
+    z-index: 10;
+    background-color: rgb(146, 208, 80);
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    padding: 30px;
+     
+  }
+  .hamburger {
+    width: 25px;
+    height: 3px ;
+    background-color: rgb(146, 208, 80);  
+    margin: 3px 0;
+    
+  }
+  .buttDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    justify-content: center;
+  
+  }
+  .App-logo {
+    padding-top: 20px;
+    height: 10vh;
+    position: relative;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.281);
+  }
+  .logoDiv {
+      display: flex;
+      justify-content: center;
+      position: relative;
+  }
+
+  .menus {
+      display: flex;
+      justify-content: center;
+      justify-content: space-around;
+      text-align: center;
+      position: relative;
+      width: 40%;
+      right: 5%;
+  }
+  .footerColumns {
+    list-style-type: none;
+    text-align: center;
+  }
+  li {
+    list-style-type: none;
+  }
+  div {
+    font-weight: bold;
+  }
