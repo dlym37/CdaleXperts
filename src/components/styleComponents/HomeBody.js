@@ -40,20 +40,25 @@ class HomeBody extends Component {
                                 question you have about your Cannondale.
 
                         </p>
-                        <button className="footer_tab" onClick={this.handleClick}>
-                            <h3 className="label">More About Cdale Experts</h3>
-                            <div className="buttDiv">
-                                <span className="hamburger"></span>
-                                <span className="hamburger"></span>
-                                <span className="hamburger"></span>
-                            </div>
-                        </button>
 
                     </div>
 
                     <div>
 
                     </div>
+                    <button onClick={this.handleClick} 
+                    className={this.state.show ?
+                        'footer_tab click1' :
+                        'footer_tab'}>
+                            <div>
+                            <h3 className="label">More About Cdale Experts</h3>
+                            </div>
+                            <div className="buttDiv">
+                                <span className="hamburger"></span>
+                                <span className="hamburger"></span>
+                                <span className="hamburger"></span>
+                            </div>
+                        </button>
 
                 </div>
                 <HomeFooter show={this.state.show} />

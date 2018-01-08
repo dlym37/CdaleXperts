@@ -1,5 +1,17 @@
 .setup {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
     width: 100%;
-    background-color: grey;
-    height: 300px;
+    background-color: black;
+    height: 30%;
+    padding: 5%;
+    justify-content: space-between;
+}
+
+.navBox {
+    background-color: black;
+    height: 200px;
+    width: 20%;
+    position: fixed;
 }

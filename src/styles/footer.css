@@ -9,34 +9,43 @@
     background: white;
     display: flex;
     justify-content: center;
+    text-align: center;
     float: right;
-    position: fixed;
+    position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: 0px;
     border-top-left-radius: 15px;
     border: none;
     cursor: pointer;
     justify-content: space-around;
-    
+    align-items: center;
+    transition: .5s;
+  }
+  .click1 {
+    bottom: 360px;
   }
   .footer_tab h3 {
     color: black; 
     display: flex;
     position: relative;
     justify-content: center;
+    flex-wrap: wrap;
   }
   .footer {
     position: fixed;
-    top: 80vh;
-    height: 40%;
+    bottom: -360px;
+    height: 300px;
     width: 100%;
     z-index: 10;
-    background-color: rgb(146, 208, 80);
+    background-color: white;
     display: flex;
     justify-content: center;
     justify-content: space-between;
     padding: 30px;
-     
+     transition: .5s;
+  }
+  .click2 {
+    bottom: 0px;
   }
   .hamburger {
     width: 25px;
@@ -51,6 +60,7 @@
     justify-content: space-between;
     position: relative;
     justify-content: center;
+    
   
   }
   .App-logo {
@@ -77,6 +87,7 @@
   .footerColumns {
     list-style-type: none;
     text-align: center;
+    align-items: center;
   }
   li {
     list-style-type: none;

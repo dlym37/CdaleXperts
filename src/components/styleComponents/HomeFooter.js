@@ -17,11 +17,10 @@ class HomeFooter extends Component {
         //     doNot: {
         //         display: false}
         //     }
-        if (this.props.show) {
-            console.log('Hit');
+
             return (
 
-                    <footer className='footer'>
+                    <footer className={this.props.show ? 'footer click2' : 'footer'}>
                         <div>
                             <img src='https://www.cannondaleexperts.com/assets/images/artwork/cannondale-experts-logo.jpg' alt="logo" className="app-logo" />
                         </div>
@@ -55,7 +54,6 @@ class HomeFooter extends Component {
                         </div>
                     </footer>
             )
-        }
         return (
             <div></div>
         )

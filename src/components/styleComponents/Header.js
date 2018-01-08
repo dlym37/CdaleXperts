@@ -16,11 +16,11 @@ class HomeNav extends Component {
   handleMountain = () => {
     if (this.state.mountain === false) {
         this.setState({
-            show: true
+            mountain: true
         })
     } else {
         this.setState({
-            show: false
+            mountain: false
         })
     }
 
@@ -28,11 +28,11 @@ class HomeNav extends Component {
 handleRoad = () => {
     if (this.state.road === false) {
         this.setState({
-            show: true
+            road: true
         })
     } else {
         this.setState({
-            show: false
+            road: false
         })
     }
 
@@ -40,11 +40,11 @@ handleRoad = () => {
 handleGear = () => {
     if (this.state.gear === false) {
         this.setState({
-            show: true
+            gear: true
         })
     } else {
         this.setState({
-            show: false
+            gear: false
         })
     }
 
@@ -52,11 +52,11 @@ handleGear = () => {
 handleParts = () => {
     if (this.state.parts === false) {
         this.setState({
-            show: true
+            parts: true
         })
     } else {
         this.setState({
-            show: false
+            parts: false
         })
     }
 
@@ -64,11 +64,11 @@ handleParts = () => {
 handleAccessories = () => {
     if (this.state.accessories === false) {
         this.setState({
-            show: true
+            accessories: true
         })
     } else {
         this.setState({
-            show: false
+            accessories: false
         })
     }
 
@@ -81,11 +81,11 @@ handleAccessories = () => {
             <img src='https://www.cannondaleexperts.com/assets/images/artwork/cannondale-experts-logo.jpg' className="App-logo" alt="logo" />
           </Link>
           <nav>
-            <Link to="/mountain" onBlur={this.handleMountain}> <li>Mountain</li></Link>
-            <Link to="/road"> <li>Road</li></Link>
-            <Link to="/gear"> <li>Gear</li></Link>
-            <Link to="/parts"> <li>Parts</li></Link>
-            <Link to="/accessories"> <li>Accessories</li></Link>
+            <Link to="/mountain" onMouseOver={this.handleMountain}> <li>Mountain</li></Link>
+            <Link to="/road" onMouseOver={this.handleRoad}> <li>Road</li></Link>
+            <Link to="/gear" onMouseOver={this.handleGear}> <li>Gear</li></Link>
+            <Link to="/parts" onMouseOver={this.handleParts}> <li>Parts</li></Link>
+            <Link to="/accessories" onMouseOver={this.handleAccessories}> <li>Accessories</li></Link>
           </nav>
           <ul className="navUl">
             <Link to="/search"><li>Search</li></Link>

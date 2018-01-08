@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import "../../styles/cart.css"
+import CartStyle from '../styleComponents/CartStyle'
 
 class Cart extends Component {
    
     render() {
         return (
             <div>
-                <div className="products_list"></div>
-                <div className="cart_div"></div>
+                <CartStyle/>
                 
             </div>
 
