@@ -1,110 +1,109 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import NavOptions from './NavOptons';
+import '../../styles/header.css'
+import HomeBody from './HomeBody';
+import scalpel from '../../images/scalpel.jpg';
+import habit from '../../images/habit.jpg';
+import trigger from '../../images/trigger.jpg';
+import jekyll from '../../images/jekyll.jpg';
 
-class HomeNav extends Component {
-  constructor() {
-    super()
-    this.state = {
-      mountain: false,
-      road: false,
-      gear: false,
-      parts: false,
-      accessories: false
-    }
-  }
-  handleMountain = () => {
-    if (this.state.mountain === false) {
-        this.setState({
-            mountain: true
-        })
-    } else {
-        this.setState({
-            mountain: false
-        })
-    }
 
-}
-handleRoad = () => {
-    if (this.state.road === false) {
-        this.setState({
-            road: true
-        })
-    } else {
-        this.setState({
-            road: false
-        })
-    }
+function HomeNav() {
 
-}
-handleGear = () => {
-    if (this.state.gear === false) {
-        this.setState({
-            gear: true
-        })
-    } else {
-        this.setState({
-            gear: false
-        })
-    }
 
-}
-handleParts = () => {
-    if (this.state.parts === false) {
-        this.setState({
-            parts: true
-        })
-    } else {
-        this.setState({
-            parts: false
-        })
-    }
-
-}
-handleAccessories = () => {
-    if (this.state.accessories === false) {
-        this.setState({
-            accessories: true
-        })
-    } else {
-        this.setState({
-            accessories: false
-        })
-    }
-
-}
-  render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <Link to="/">
-            <img src='https://www.cannondaleexperts.com/assets/images/artwork/cannondale-experts-logo.jpg' className="App-logo" alt="logo" />
-          </Link>
-          <nav>
-            <Link to="/mountain" onMouseOver={this.handleMountain}> <li>Mountain</li></Link>
-            <Link to="/road" onMouseOver={this.handleRoad}> <li>Road</li></Link>
-            <Link to="/gear" onMouseOver={this.handleGear}> <li>Gear</li></Link>
-            <Link to="/parts" onMouseOver={this.handleParts}> <li>Parts</li></Link>
-            <Link to="/accessories" onMouseOver={this.handleAccessories}> <li>Accessories</li></Link>
-          </nav>
-          <ul className="navUl">
-            <Link to="/search"><li>Search</li></Link>
-            <Link to="/myAccount"><li>My Account</li></Link>
-            <Link to="/cart"><li>Cart</li></Link>
-          </ul>
-        </header>
-        <NavOptions
-          mountain={this.state.mountain}
-          road={this.state.road}
-          gear={this.state.gear}
-          parts={this.state.parts}
-          accessories={this.state.accessories}
-        />
-      </div>
+        <div className="App">
+            <header className="App-header">
+                <div className="buttDiv2">
+                    <span className="hamburger"></span>
+                    <span className="hamburger"></span>
+                    <span className="hamburger"></span>
+                </div>
+                <Link to="/">
+                    <img src='https://www.cannondaleexperts.com/assets/images/artwork/cannondale-experts-logo.jpg' className="App-logo" alt="logo" />
+                </Link>
+                <nav>
+                    <div className='nav-item'>
+                        <Link to="/mountain" className='nav-title'> <div >Mountain</div>
+                        </Link>
+                        <div className="sub-menu sub-menu-imgs" >
+                            <div className='backdrop'>
+                                <img className="sub-menu-item" src={scalpel} alt='scalpel' />
+                                <img className="sub-menu-item" src={habit} alt='habit' />
+                                <img className="sub-menu-item" src={trigger} alt='trigger' />
+                                <img className="sub-menu-item" src={jekyll} alt='jekyll' />
+                            </div>
+
+                        </div>
+                    </div>
+                    <div className='nav-item'>
+                        <Link to="/road" className='nav-title'> <div >Road</div>
+                        </Link>
+                        <div className="sub-menu sub-menu-imgs" >
+                            <div className='backdrop'>
+                                <img className="sub-menu-item" src={scalpel} alt='scalpel' />
+                                <img className="sub-menu-item" src={habit} alt='habit' />
+                                <img className="sub-menu-item" src={trigger} alt='trigger' />
+                                <img className="sub-menu-item" src={jekyll} alt='jekyll' />
+                            </div>
+
+                        </div>
+                    </div>
+                    <div className='nav-item'>
+                        <Link to="/gear" className='nav-title'> <div>Gear</div>
+                        </Link>
+                        <div className="sub-menu sub-menu-imgs" >
+                            <div className='backdrop'>
+                                <img className="sub-menu-item" src={scalpel} alt='scalpel' />
+                                <img className="sub-menu-item" src={habit} alt='habit' />
+                                <img className="sub-menu-item" src={trigger} alt='trigger' />
+                                <img className="sub-menu-item" src={jekyll} alt='jekyll' />
+                            </div>
+
+                        </div>
+                    </div>
+                    <div className='nav-item'>
+                        <Link to="/parts" className='nav-title'> <div>Parts</div>
+                        </Link>
+                        <div className="sub-menu sub-menu-imgs" >
+                            <div className='backdrop'>
+                                <img className="sub-menu-item" src={scalpel} alt='scalpel' />
+                                <img className="sub-menu-item" src={habit} alt='habit' />
+                                <img className="sub-menu-item" src={trigger} alt='trigger' />
+                                <img className="sub-menu-item" src={jekyll} alt='jekyll' />
+                            </div>
+
+                        </div>
+                    </div>
+                    <div className='nav-item'>
+                        <Link to="/accessories" className='nav-title'> <div >Accessories</div>
+                        </Link>
+                        <div className="sub-menu sub-menu-imgs" >
+                            <div className='backdrop'>
+                                <img className="sub-menu-item" src={scalpel} alt='scalpel' />
+                                <img className="sub-menu-item" src={habit} alt='habit' />
+                                <img className="sub-menu-item" src={trigger} alt='trigger' />
+                                <img className="sub-menu-item" src={jekyll} alt='jekyll' />
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                </nav>
+                <ul className="navUl">
+                    <div to="/search"><li>Search</li></div>
+                    <div to="/myAccount"><li>My Account</li></div>
+                    <div to="/cart"><li>Cart</li></div>
+                </ul>
+            </header>
+            {/* <NavOptions
+                    type={this.state.submenuType}
+                    handleMountain={this.state.handleMountain}
+                    className='setup' /> */}
+        </div>
 
     )
 
-  }
 }
 export default HomeNav;
 

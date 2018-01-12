@@ -8,10 +8,10 @@ class ComponentBody extends Component {
             <div>
 
                 <div className='right_pic'>
-                    <ProductRows/>
                     <div className='titleOfPage'>
                         <h2>{this.props.title}</h2>
                     </div>
+                    {<ProductRows/>}
                 </div>
             </div>
         )

@@ -5,40 +5,41 @@
 
 .App {
   text-align: center;
+  font-family: 'play', sans-serif;
+  
 }
-
-
-.App-logo {
-  padding-top: 20px;
-  height: 10vh;
-  position: relative;
-  border-bottom-right-radius: 15px;
-  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.281);
-}
-
 .App-header {
   background-color: #222;
   color: white;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: space-around;
-  height: 7vh;
+  height: 80px;
+}
+
+.App-logo {
+  padding-top: 20px;
+  height: 10vh;
+  border-bottom-right-radius: 15px;
+  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.281);
+}
+.buttDiv2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-content: center;
+  display: none;
+  left: 20px;
+  
 }
 
 nav {
   display: flex;
-  float: right;
-  align-items: center;
-  flex-direction: row;
-  width: 70%;
   justify-content: space-around;
-  margin: 0 auto;
-  position: relative;
-  top: 0;
-  list-style-type: none;
-  font-family: 'play', sans-serif;
+  align-items: center;
   font-size: 20px;
   color: rgb(146, 208, 80);
+  width: 70%;
 }
 
 .main_pic {
@@ -51,30 +52,31 @@ nav {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  font-family: 'play', sans-serif;
+  
 }
 .right_pic {
+  font-family: 'play', sans-serif;
   width: 100%;
   height: 100vh;
   object-fit: cover;
   display: flex;
   background-image: url('https://github.com/Alan-Miller/parallax-css/blob/master/img/treeline-midd.png?raw=true');
-  background-size: cover;
+  background-size: stretch;
   background-repeat: no-repeat;
   background-position: center;
+  background-color: white;
 }
 .navUl {
   display: flex;
-  float: right;
   align-items: center;
   flex-direction: row;
   width: 15%;
   justify-content: space-around;
-  margin: 0 auto;
-  position: relative;
-  top: 0;
   list-style-type: none;
   font-family: 'play', sans-serif;
   font-size: 10px;
+  margin-right: 20px;
 }
 
 .home_text {
@@ -87,23 +89,39 @@ nav {
   height: 30%;
   text-align: center;
 }
+
 .titleOfPage {
   display: flex;
   color: rgb(146, 208, 80);
   font-size: 40px;
-  position: absolute;
-  left: 2%;
+  margin-left: 25px;
 }
+
 nav a {
   color: rgb(146, 208, 80);  
   text-decoration: none;
 }
+
 ul a {
   color: white;;
   text-decoration: none;
 }
 
-
-
-
-
+@media (max-width: 1020px){
+  .buttDiv2 {
+    display: flex;
+    width: 10%;
+  }
+  nav {
+    display: none;
+  }
+  .App-header {
+    justify-content: space-between;
+  }
+  .App-logo {
+    border-bottom-left-radius: 15px;
+  }
+  .navUl{
+    width: 30%;
+  }
+}

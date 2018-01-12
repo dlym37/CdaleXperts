@@ -19,11 +19,14 @@
 .filterBox{
     width: 80%;
     height: 60%;
-    background-color: white;
+    background-color: whitesmoke;
     border-radius: 15px;
     position: relative;
     top: 15%;
     flex-basis: 23%;
+    border-style: solid;
+    border-width: 5px;
+    border-color: rgb(146, 208, 80);
 }
 .filterBox h4{
     margin: 10px;
@@ -41,17 +44,39 @@ hr {
     align-content: space-between;
     justify-content: center;
     flex-direction: column;
-    position: relative;
+    /* position: relative; */
     align-items: center;
+    /* top: 50px; */
+    top: 100px;
+    
 }
 
 .productBox{
     width: 80%;
-    height: 20%;
-    background-color: white;
+    height: 25%;
+    background-color: whitesmoke;
     border-radius: 15px;
     position: relative;
     top: 15%;
     margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
+    border-style: solid;
+    border-width: 5px;
+    border-color: rgb(146, 208, 80);
+}
+.picDiv {
+    background: url('http://cf-prd.cannondale.com/~/media/Images/Dorel/Products/Bikes/C23308M/Variants/C23308M70LG/images/imabtgf9u5ij2ctrpyi1.ashx?vs=1&d=20170623T185124Z');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 90%;
+    height: 70%;
+    display: flex;
+    position: relative;
+    border-radius: 15px;
+    cursor: pointer;
 }
 

@@ -7,8 +7,11 @@ session = require('express-session');
 const app = express();
 app.use(bodyParser.json());
 
-
-
+app.get('./api/mountain', )
+// create request to pull from controller
+// create controller to pull from DB 
+// create function that will axios request the picture 
+// apply picture in div as a style Element
 
 
 

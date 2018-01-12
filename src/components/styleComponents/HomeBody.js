@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import HomeFooter from './HomeFooter';
 import '../../styles/footer.css'
+import Header from './Header';
 
 class HomeBody extends Component {
     constructor() {
@@ -11,25 +12,19 @@ class HomeBody extends Component {
     }
 
     handleClick = () => {
-        if (this.state.show === false) {
-            this.setState({
-                show: true
-            })
-        } else {
-            this.setState({
-                show: false
-            })
-        }
+        this.setState({
+            show: !this.state.show
+        })
 
     }
-    
+
 
     render() {
         return (
             <div>
 
                 <div className='main_pic'>
-                    
+
                     <div className="home_text">
                         <h1>Thanks for visiting the Cannondale Experts,</h1>
                         <p>your source for hard to find original Cannondale parts, tools,
@@ -46,19 +41,19 @@ class HomeBody extends Component {
                     <div>
 
                     </div>
-                    <button onClick={this.handleClick} 
-                    className={this.state.show ?
-                        'footer_tab click1' :
-                        'footer_tab'}>
-                            <div>
-                            <h3 className="label">More About Cdale Experts</h3>
-                            </div>
-                            <div className="buttDiv">
-                                <span className="hamburger"></span>
-                                <span className="hamburger"></span>
-                                <span className="hamburger"></span>
-                            </div>
-                        </button>
+                    <div onClick={this.handleClick}
+                        className={this.state.show ?
+                            'footer_tab click1' :
+                            'footer_tab'}>
+                        <div>
+                            <h3>More About Cdale Experts</h3>
+                        </div>
+                        <div className="buttDiv">
+                            <span className="hamburger"></span>
+                            <span className="hamburger"></span>
+                            <span className="hamburger"></span>
+                        </div>
+                    </div>
 
                 </div>
                 <HomeFooter show={this.state.show} />
