@@ -10,18 +10,20 @@
 
 .sub-menu { /*sub-menu*/
     position: absolute;
-    top: 80px;
+    top: 70px;
     left: 0px;
     width: 100%; 
     overflow: hidden;   
 }
 .backdrop {
-    background: whitesmoke;
+    background: rgba(245, 245, 245, 0.850);
     display: flex;
     justify-content: space-around;
     height: 0px;
     transition: .4s;
     transition-delay: .6s;
+    padding-left: 80px;
+    padding-right: 80px;
 }
 
 .nav-item:hover .backdrop {
@@ -39,12 +41,15 @@
 }
 
 .sub-menu-item {
-    
-    width: auto;
     position: relative;
     color: white;
     transition: .6s;
     opacity: 0;
+}
+
+.sub-menu-item-img{
+    height: 200px;
+    width: 400px;
 }
 
 .sub-menu-imgs .sub-menu-item {
@@ -76,16 +81,46 @@
     transition-delay: .6s;
   
   }
-  .nav-item .sub-menu-item {
-    transition-delay: .2s;
+  .nav-item .sub-menu-item:nth-child(1) {
+    transition-delay: .4s;
   }
   
   .nav-item .sub-menu-item:nth-child(2) {
-    transition-delay: .2s;
+    transition-delay: .3s;
   }
   .nav-item .sub-menu-item:nth-child(3) {
-    transition-delay: .1s;
+    transition-delay: .2s;
   }
   .nav-item .sub-menu-item:nth-child(4) {
-    transition-delay: 0s;
+    transition-delay: .1s;
+  }
+  .sub-menu-item-link {
+      width: 400px;
+  }
+
+  .sub-menu-item-title {
+      position: relative;
+      top: -125px;
+      color: white;
+      background: #222222;
+      opacity: .5;
+      transition: .6s;
+  }
+
+  .nav-item .sub-menu-item-title {
+    top: -110px;
+  }
+
+  .nav-item .sub-menu-item:nth-child(1) .sub-menu-item-title{
+    transition-delay: .4s;
+  }
+  
+  .nav-item .sub-menu-item:nth-child(2) .sub-menu-item-title{
+    transition-delay: .3s;
+  }
+  .nav-item .sub-menu-item:nth-child(3) .sub-menu-item-title{
+    transition-delay: .2s;
+  }
+  .nav-item .sub-menu-item:nth-child(4) .sub-menu-item-title{
+    transition-delay: .1s;
   }

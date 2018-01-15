@@ -1,10 +1,14 @@
+
+
 .mainDiv {
     display: flex;
+    flex-direction: column;
     align-content: space-between;
-    position: absolute;
+    /* position: absolute; */
     width: 100%;
     height: 100%;
 }
+
 /* All the filter things */
 .filterRow {
     width: 25%;
@@ -12,21 +16,20 @@
     align-content: space-between;
     justify-content: center;
     flex-direction: column;
-    position: relative;
+    /* position: relative; */
     align-items: center;
 }
 
 .filterBox{
-    width: 80%;
+    width: 94%;
     height: 60%;
-    background-color: whitesmoke;
-    border-radius: 15px;
-    position: relative;
+    background-color: white;
+    /* box-shadow: 0px 14px 20px 0px gray; */
+    /* border-radius: 15px; */
+    /* position: relative; */
     top: 15%;
     flex-basis: 23%;
     border-style: solid;
-    border-width: 5px;
-    border-color: rgb(146, 208, 80);
 }
 .filterBox h4{
     margin: 10px;
@@ -38,26 +41,27 @@ hr {
     width: 80%;
 }
 /* All the product row stuff */
-.productRow{
-    width: 25%;
+.product-cont{
+    width: 100%;
+    height: 100vh;
     display: flex;
-    align-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 200px;
+}
+.bike-pic {
+    width: 90%;
+    height: 70%;
+    display: flex;
     justify-content: center;
-    flex-direction: column;
-    /* position: relative; */
     align-items: center;
-    /* top: 50px; */
-    top: 100px;
-    
+    background: white;
 }
 
 .productBox{
-    width: 80%;
-    height: 25%;
-    background-color: whitesmoke;
-    border-radius: 15px;
-    position: relative;
-    top: 15%;
+    width: 30%;
+    height: 42%;
+    background-color: rgba(245, 245, 245, 0.925);
     margin: 10px;
     display: flex;
     flex-direction: column;
@@ -65,18 +69,14 @@ hr {
     justify-content: center;
     justify-content: space-around;
     border-style: solid;
-    border-width: 5px;
-    border-color: rgb(146, 208, 80);
+   
 }
 .picDiv {
     background: url('http://cf-prd.cannondale.com/~/media/Images/Dorel/Products/Bikes/C23308M/Variants/C23308M70LG/images/imabtgf9u5ij2ctrpyi1.ashx?vs=1&d=20170623T185124Z');
     background-repeat: no-repeat;
     background-size: contain;
-    width: 90%;
-    height: 70%;
-    display: flex;
-    position: relative;
-    border-radius: 15px;
+    
+    /* border-radius: 15px; */
     cursor: pointer;
 }
 

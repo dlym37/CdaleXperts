@@ -25,7 +25,7 @@ class HomeBody extends Component {
 
                 <div className='main_pic'>
 
-                    <div className="home_text">
+                    <div className="homeText">
                         <h1>Thanks for visiting the Cannondale Experts,</h1>
                         <p>your source for hard to find original Cannondale parts, tools,
                                 and accessories. Our mission is to stock every available spare
@@ -45,7 +45,7 @@ class HomeBody extends Component {
                         className={this.state.show ?
                             'footer_tab click1' :
                             'footer_tab'}>
-                        <div>
+                        <div className='buttDiv'>
                             <h3>More About Cdale Experts</h3>
                         </div>
                         <div className="buttDiv">

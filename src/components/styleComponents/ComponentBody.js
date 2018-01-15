@@ -2,17 +2,26 @@ import React, { Component } from 'react';
 import ProductRows from './ProductRows';
 
 class ComponentBody extends Component {
-   
+    constructor(){
+        super();
+        this.state = {
+            page: ''
+        }
+    }
+
     render() {
         return (
             <div>
-
-                <div className='right_pic'>
-                    <div className='titleOfPage'>
-                        <h2>{this.props.title}</h2>
-                    </div>
-                    {<ProductRows/>}
+                <div className='titleOfPage'>
+                    <h2>{this.props.match.params.type.toUpperCase()}</h2>
                 </div>
+                <div className='right_pic'>
+                        <ProductRows type={this.props.match.params.type}
+                subType={this.props.match.params.subType} />
+                    
+
+                </div>
+
             </div>
         )
 

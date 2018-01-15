@@ -1,27 +1,20 @@
 .cart_body {
     display: flex;
-    flex-direction: row;
-    position: relative;
 }
 
 .products_list {
-display: inline-block;
-border-right-color: black;
-border-right-width: 100px;
-width: 70%;
-height: 93vh;
-position: relative;
-float: left;
+    height: 93vh;
+    width: 70%;
+    float: left;
 }
 
 .cart_div {
-    width: 30%;
-    height: 93vh;
     position: absolute;
-    top: 7vh;
     right: 0;
-    float: right;
+    height: 93vh;
+    width: 30%;
     border-left-style: solid;
     border-left-width: 5px;
-    border-left-color: black;
+    border-left-color: #222;
+    float: right;
 }

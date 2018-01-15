@@ -1,1 +1,0 @@
-select pictures from mountain;
