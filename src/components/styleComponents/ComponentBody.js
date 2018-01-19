@@ -15,12 +15,13 @@ class ComponentBody extends Component {
                 <div className='titleOfPage'>
                     <h2>{this.props.match.params.type.toUpperCase()}</h2>
                 </div>
-                <div className='right_pic'>
+                <div className='tree-pic'>
                         <ProductRows type={this.props.match.params.type}
                 subType={this.props.match.params.subType} />
                     
 
                 </div>
+                <div className='bgColor'></div>
 
             </div>
         )

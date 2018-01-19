@@ -58,12 +58,12 @@
     top: -50px;
 }
 
-.sub-menu-text .sub-menu-item {
+/* .sub-menu-text .sub-menu-item {
     height: 90px;
     font-size: 20px;
     margin: 20px;
-    top: -25px;
-}
+    top: -555px;
+} */
 
 .nav-item:hover .sub-menu-item {
     transition-delay: .4s;

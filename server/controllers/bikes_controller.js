@@ -8,9 +8,10 @@ module.exports = {
     },
     get_mountain_styles: (req, res) => {
         const db = req.app.get('db');
-        const { style } = req.params
+        const { subType } = req.params;
 
-        db.get_mountain_styles([style]).then(result => {
+        db.get_mountain_styles([subType]).then(result => {
+
             res.status(200).send(result)
         })
     },
@@ -23,10 +24,19 @@ module.exports = {
     },
     get_road_styles: (req, res) => {
         const db = req.app.get('db');
-        const { style } = req.params;
+        const { subType } = req.params;
 
-        db.get_road_styles([style]).then(result => {
+        db.get_road_styles([subType]).then(result => {
+            res.status(200).send(result);
+        })
+    },
+    get_mountain_info: (req, res) => {
+        const db = req.app.get('db');
+        const { id } = req.params;
+
+        db.get_mountain_info([id]).then(result => {
             res.status(200).send(result);
         })
     }
+    
 }

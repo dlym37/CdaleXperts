@@ -86,23 +86,28 @@ nav {
 .titleOfPage {
   display: flex;
   justify-content: center;
+  align-items: center;
   color: rgb(146, 208, 80);
   font-size: 40px;
   font-family: 'play', sans-serif;
+  height: 100px;
   
 }
 
-.right_pic {
+.tree-pic {
   font-family: 'play', sans-serif;
   width: 100%;
-  height: 100vh;
-  object-fit: cover;
+  height: 85vh;
   display: flex;
   background-image: url('https://github.com/Alan-Miller/parallax-css/blob/master/img/treeline-midd.png?raw=true');
-  background-size: stretch;
   background-repeat: no-repeat;
   background-position: center;
   background-color: white;
+}
+.bgColor {
+  width: 100%;
+  background-color: #222;
+  /* height: 200vh; */
 }
 
 nav a {

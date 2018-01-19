@@ -1,20 +1,132 @@
-.cart_body {
+.big-div-without{
+    height: 92vh;
+    width: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'play', sans-serif;        
+}
+.big-div-with{
+
+}
+.cart-body {
+    display: flex;
+    
+}
+.product-stuff {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    border-right-style: solid;
+    border-right-width: 5px;
+    border-right-color: #222;
+}
+.none {
+    display: none;
 }
 
-.products_list {
-    height: 93vh;
-    width: 70%;
-    float: left;
+/*Product display*/
+.products-list {
+    width: 100%;
+     
+}
+.product-section {
+    display: flex; 
+    width: 100%;
+    justify-content: space-around;
+    
 }
 
-.cart_div {
-    position: absolute;
-    right: 0;
-    height: 93vh;
-    width: 30%;
-    border-left-style: solid;
-    border-left-width: 5px;
-    border-left-color: #222;
-    float: right;
+.product-info-sub {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+   
 }
+.product-title {
+    color: rgb(146, 208, 80);
+    font-size: 35px;
+    font-family: 'play', sans-serif;
+    height: 50px;
+}
+.product-section-sub {
+    display: flex;
+    margin: 0px 0px 10px 0;
+}
+.qty {
+    margin-right: 10px;
+    font-family: 'play', sans-serif;        
+    
+}
+.remove-butt {
+    border: none;
+    background-color: rgb(146, 208, 80);
+    color: white;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.img {
+    width: 50%;
+    height: 35vh;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: whitesmoke;
+}
+.h1 {
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/*cart info (right side */
+.cart-div {
+    height: 93vh;
+    width: 100%;
+    font-size: 25px;
+    font-family: 'play', sans-serif;        
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.tax {
+    margin: 30px;
+}
+.total {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    border-color: #222;
+    border-width: 3px;
+    border-style: solid;
+    height: 100px;
+}
+.cont-shop-butt {
+    border: none;
+    background-color: #222;
+    color: white;
+    margin: 30px;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.checkout-butt {
+    border: none;
+    background-color: rgb(146, 208, 80);
+    color: white;
+    width: 250px;
+    height: 75px;
+    font-size: 30px;
+    cursor: pointer;
+}
+

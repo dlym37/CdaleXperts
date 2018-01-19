@@ -31,24 +31,24 @@ function HomeNav() {
                 </Link>
                 <nav>
                     <div className='nav-item'>
-                        <Link to="/mountain/all" className='nav-title'> <div >Mountain</div>
+                        <Link to="/bikes/mountain/all" className='nav-title'> <div >Mountain</div>
                         </Link>
                         <div className="sub-menu sub-menu-imgs" >
                             <div className='backdrop'>
                                 <div className="sub-menu-item">
-                                    <Link to="/mountain/cross-country" className="sub-menu-item-link"><img className="sub-menu-item-img" src={scalpel} alt='scalpel' /></Link>
+                                    <Link to="/bikes/mountain/cross-country" className="sub-menu-item-link"><img className="sub-menu-item-img" src={scalpel} alt='scalpel' /></Link>
                                     <h1 className='sub-menu-item-title'>Cross-Country</h1>
                                 </div>
                                 <div className="sub-menu-item">
-                                    <Link to="/mountain/trail" className="sub-menu-item-link"><img className="sub-menu-item-img" src={habit} alt='habit' /></Link>
+                                    <Link to="/bikes/mountain/trail" className="sub-menu-item-link"><img className="sub-menu-item-img" src={habit} alt='habit' /></Link>
                                     <h1 className='sub-menu-item-title'>Trail</h1>
                                 </div>
                                 <div className="sub-menu-item">
-                                    <Link to="/mountain/all-mountain" className="sub-menu-item-link"><img className="sub-menu-item-img" src={trigger} alt='trigger' /></Link>
+                                    <Link to="/bikes/mountain/all-mountain" className="sub-menu-item-link"><img className="sub-menu-item-img" src={trigger} alt='trigger' /></Link>
                                     <h1 className='sub-menu-item-title'>All-Mountain</h1>
                                 </div>
                                 <div className="sub-menu-item">
-                                    <Link to="/mountain/enduro" className="sub-menu-item-link"><img className="sub-menu-item-img" src={jekyll} alt='jekyll' /></Link>
+                                    <Link to="/bikes/mountain/enduro" className="sub-menu-item-link"><img className="sub-menu-item-img" src={jekyll} alt='jekyll' /></Link>
                                     <h1 className='sub-menu-item-title'>Enduro</h1>
                                 </div>
                             </div>
@@ -56,24 +56,24 @@ function HomeNav() {
                         </div>
                     </div>
                     <div className='nav-item'>
-                        <Link to="/road" className='nav-title'> <div >Road</div>
+                        <Link to="/bikes/road/all" className='nav-title'> <div >Road</div>
                         </Link>
                         <div className="sub-menu sub-menu-imgs" >
                             <div className='backdrop'>
                                 <div className="sub-menu-item">
-                                    <Link to="/road/endurance" className="sub-menu-item-link"><img className="sub-menu-item-img" src={synapse} alt='synapse' /></Link>
+                                    <Link to="/bikes/road/endurance" className="sub-menu-item-link"><img className="sub-menu-item-img" src={synapse} alt='synapse' /></Link>
                                     <h1 className='sub-menu-item-title'>Endurance</h1>
                                 </div>
                                 <div className="sub-menu-item">
-                                    <Link to="/road/race-elite" className="sub-menu-item-link"><img className="sub-menu-item-img" src={supersix} alt='supersix' /></Link>
+                                    <Link to="/bikes/road/race-elite" className="sub-menu-item-link"><img className="sub-menu-item-img" src={supersix} alt='supersix' /></Link>
                                     <h1 className='sub-menu-item-title'>Race Elite</h1>
                                 </div>
                                 <div className="sub-menu-item">
-                                    <Link to="/road/elite" className="sub-menu-item-link"><img className="sub-menu-item-img" src={caad12} alt='caad12' /></Link>
+                                    <Link to="/bikes/road/race" className="sub-menu-item-link"><img className="sub-menu-item-img" src={caad12} alt='caad12' /></Link>
                                     <h1 className='sub-menu-item-title'>Race</h1>
                                 </div>
                                 <div className="sub-menu-item">
-                                    <Link to="/road/other" className="sub-menu-item-link"><img className="sub-menu-item-img" src={slate} alt='slate' /></Link>
+                                    <Link to="/bikes/road/other" className="sub-menu-item-link"><img className="sub-menu-item-img" src={slate} alt='slate' /></Link>
                                     <h1 className='sub-menu-item-title'>Other</h1>
                                 </div>
                             </div>
@@ -160,10 +160,7 @@ function HomeNav() {
                     <Link to="/cart"><li>Cart</li></Link>
                 </ul>
             </header>
-            {/* <NavOptions
-                    type={this.state.submenuType}
-                    handleMountain={this.state.handleMountain}
-                    className='setup' /> */}
+
         </div>
 
     )

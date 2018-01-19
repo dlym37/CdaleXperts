@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import HomeFooter from './HomeFooter';
 import '../../styles/footer.css'
-import Header from './Header';
 
 class HomeBody extends Component {
     constructor() {
