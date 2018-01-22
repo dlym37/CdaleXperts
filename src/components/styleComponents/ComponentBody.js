@@ -15,7 +15,7 @@ class ComponentBody extends Component {
                 <div className='titleOfPage'>
                     <h2>{this.props.match.params.type.toUpperCase()}</h2>
                 </div>
-                <div className='tree-pic'>
+                <div className='tree-pic background'>
                         <ProductRows type={this.props.match.params.type}
                 subType={this.props.match.params.subType} />
                     

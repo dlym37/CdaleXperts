@@ -1,1 +1,2 @@
-select * from mountain;
+select * from mountain
+order by style desc, price

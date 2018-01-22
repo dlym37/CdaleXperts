@@ -48,7 +48,7 @@ hr {
 .productBox{
     width: 30%;
     height: 42%;
-    background-color: rgba(245, 245, 245, 0.925);
+    background-color: white;
     margin: 10px;
     display: flex;
     flex-direction: column;

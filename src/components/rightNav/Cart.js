@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import CartStyle from '../styleComponents/CartStyle'
 import axios from 'axios';
+import StripeCheckout from 'react-stripe-checkout';
+import stripe from '../stripeKey';
+import Modal from 'react-modal';
 
 class Cart extends Component {
     constructor() {
@@ -9,8 +12,20 @@ class Cart extends Component {
             products: [],
             subTotal: 0,
             tax: 0,
-            total: 0
+            total: 0,
+            isOpen: false
+
         }
+        this.handleCheckout = this.handleCheckout.bind(this);
+        this.handleExit = this.handleExit.bind(this);
+    }
+
+    onToken = (token) => {
+        token.card = void 0;
+        console.log('token', token);
+        axios.post('/api/payment', { token, amount: 100 }).then(response => {
+            alert('we are in business')
+        });
     }
 
     removeFromCart(i) {
@@ -21,10 +36,57 @@ class Cart extends Component {
             axios.get('/api/cart/data').then(({ data }) => {
                 // console.log(data);
                 this.setState({
-                    products: data
+                    products: data.prod,
+                    subTotal: data.subTotal,
+                    tax: data.tax,
+                    total: data.total
 
                 })
             })
+        })
+    }
+
+    updateQty(val, ind) {
+        // if(val > 0){
+        axios.put('/api/update/quantity', {
+            value: val,
+            index: ind
+        }).then(resp => {
+            axios.get('/api/cart/data').then(({ data }) => {
+                // console.log(data);
+                this.setState({
+                    products: data.prod,
+                    subTotal: data.subTotal,
+                    tax: data.tax,
+                    total: data.total
+                })
+            })
+        })
+        // } else if (val <= 0) {
+        //     axios.delete('/api/cart/remove', {
+        //         index: ind
+        //     }).then(resp => {
+        //         axios.get('/api/cart/data').then(({ data }) => {
+        //             // console.log(data);
+        //             this.setState({
+        //                 products: data.prod,
+        //                 subTotal: data.subTotal,
+        //                 tax: data.tax,
+        //                 total: data.total
+
+        //             })
+        //         })
+        //     })
+        // }
+    }
+    handleCheckout() {
+        this.setState({
+            isOpen: true
+        })
+    }
+    handleExit() {
+        this.setState({
+            isOpen: false
         })
     }
 
@@ -32,12 +94,16 @@ class Cart extends Component {
         axios.get('/api/cart/data').then(({ data }) => {
             // console.log(data);
             this.setState({
-                products: data
+                products: data.prod,
+                subTotal: data.subTotal,
+                tax: data.tax,
+                total: data.total
 
             })
         })
 
     }
+
 
     render() {
         const total = this.state.tax + this.state.subTotal;
@@ -46,11 +112,7 @@ class Cart extends Component {
         const cartItem = this.state.products.map((e, i) => {
             // console.log(this.state.products);
             // console.log(e);
-            const sub = e.price * e.qty;
-            this.state.subTotal += sub;
-            const tax = sub * .08;
-            this.state.tax += tax;
-            this.state.total = this.state.tax + this.state.subTotal;
+
             return (
                 <div key={i} className="products-list">
                     <div className='product-section'>
@@ -58,10 +120,10 @@ class Cart extends Component {
                         <div className='product-info-sub'>
                             <div className='product-title'>{e.brand + " " + e.model + " "}
                                 {e.modelnum ? e.modelnum : e.drivetrain}</div>
-                            <div className='product-title'>Price: {e.price}{}</div>
+                            <div className='product-price'>Price: {(e.price * e.qty).toFixed(2)}{}</div>
                             <div className='product-section-sub'>
                                 <div className='qty'>Qty: </div>
-                                <input placeholder={e.qty} />
+                                <input placeholder={e.qty} onChange={(e) => this.updateQty(e.target.value, i)} />
                             </div>
                             <button className='remove-butt' onClick={() => this.removeFromCart(i)}>Remove From Cart</button>
                         </div>
@@ -73,20 +135,35 @@ class Cart extends Component {
             )
         })
         return (
-            <div className={this.state.products.length > 0 ? 'big-div-with' : 'big-div-without'}>
-                <h1 className={this.state.products.length > 0 ? 'none' : 'h1'}>Nothing Added to cart</h1>
-                <div className={this.state.products.length > 0 ? 'cart-body' : 'none'}>
-                    <div className='product-stuff'>
-                        {cartItem}
+            <div className={this.state.isOpen ? 'container' : 'container'} >
+                <div className={this.state.products.length > 0 ? 'big-div-with' : 'big-div-without'}
+                    className={this.state.isOpen ? 'big-div-without blur' : 'big-div-without'}>
+                    <h1 className={this.state.products.length > 0 ? 'none' : 'h1'}>Nothing added to cart, please add or login</h1>
+                    <div className={this.state.products.length > 0 ? 'cart-body' : 'none'}>
+                        <div className='product-stuff'>
+                            {cartItem}
+                        </div>
+                        <div className="cart-div">
+                            <div>Subtotal: ${this.state.subTotal.toFixed(2)} </div>
+                            <div className='tax'>Tax: ${this.state.tax.toFixed(2)} </div>
+                            <div>Total Price: </div>
+                            <div className='total'>${this.state.total.toFixed(2)}</div>
+                            <button className='cont-shop-butt'>Continue Shopping</button>
+                            <button className='checkout-butt' onClick={this.handleCheckout}>Checkout
+
+                            </button>
+                        </div>
                     </div>
-                    <div className="cart-div">
-                        <div>Subtotal: ${this.state.subTotal.toFixed(2)} </div>
-                        <div className='tax'>Tax: ${this.state.tax.toFixed(2)} </div>
-                        <div>Total Price: </div>
-                        <div className='total'>${this.state.total.toFixed(2)}</div>
-                        <button className='cont-shop-butt'>Continue Shopping</button>
-                        <button className='checkout-butt'>Checkout</button>
-                    </div>
+
+                </div>
+                <div className={this.state.isOpen ? 'modal focus' : 'modal'}>
+                    <button className='xButt' onClick={this.handleExit}>X</button>
+                    <StripeCheckout
+                        className='stripe'
+                        token={this.onToken}
+                        stripeKey={stripe.pub_key}
+                        amount={this.state.total.toFixed(2) * 100}
+                    />
                 </div>
             </div>
         )
