@@ -8,7 +8,12 @@ const express = require('express'),
   passport = require('passport'),
   Auth0Strategy = require('passport-auth0');
 
-
+const {
+  AUTH_DOMAIN,
+  AUTH_CLIENT_ID,
+  AUTH_CLIENT_SECRET,
+  AUTH_CALLBACK_URL
+} = process.env;
 
 const bikes_controller = require('./controllers/bikes_controller');
 const cart_controller = require('./controllers/cart_controller');
@@ -27,10 +32,67 @@ app.use(userMiddleware.checkForSession);
 app.use(passport.initialize());
 app.use(passport.session());
 
-massive(process.env.CONNECTIONSTRING).then(db => {
+massive(process.env.CONNECTIONSTRING).then((db) => {
   app.set('db', db);
 })
 
+passport.use(new Auth0Strategy({
+  domain: AUTH_DOMAIN,
+  clientID: AUTH_CLIENT_ID,
+  clientSecret: AUTH_CLIENT_SECRET,
+  callbackURL: AUTH_CALLBACK_URL,
+  scope: 'openid profile'
+}, function(accessToken, refreshToken, extraParams, profile, done){
+  let { user_id} = profile;
+  let {givenName , familyName} = profile.name;
+  console.log('Google Profile', profile);
+
+  const db = app.get('db');
+
+  db.find_user([user_id]).then(function(users){//need to create find_user
+    console.log('user_id', user_id);
+    if(!users[0]){
+      db.create_user([ //need to create create_user
+        givenName,
+        familyName,
+        user_id
+      ]).then( user => {
+        return done(null, user[0].id)
+      })
+    } else {
+      return done(null, users[0].id)
+    }
+  })
+}))
+
+passport.serializeUser((id, done) => {
+  done(null, id);
+})
+passport.deserializeUser((id, done) => {
+  app.get('db').find_session_user([id])
+  .then(function(user){
+    return done(null, user[0]);
+  })
+})
+
+app.get('/auth', passport.authenticate('auth0'));
+app.get('/auth/callback', passport.authenticate('auth0', {//if someone is authenticated, the  callback function in passport.use is fired off
+    successRedirect: 'http://localhost:3000/#/private',
+    failureRedirect: 'http://localhost:3000/'
+}));
+app.get('/auth/me', (req, res) => {
+  console.log(req.user)
+    if (!req.user) {
+        res.status(404).send('User not found.');
+    } else {
+        res.status(200).send(req.user)
+    }
+})
+
+app.get('/auth/logout', function (req, res){
+  req.logOut();
+  res.redirect('http://localhost:3000/')
+})
 
 //mountain
 app.get('/api/mountain/all', bikes_controller.get_mountain);

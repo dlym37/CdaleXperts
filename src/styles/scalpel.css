@@ -1,0 +1,154 @@
+.bike-click {
+    background: #222;
+    opacity: .9;
+}
+.front-wheel {
+    position: absolute;
+    bottom: 8.5px;
+    left: 635px;
+    transition: .6s;
+    z-index: 5;
+}
+.rear-wheel {
+    position: absolute;
+    bottom: 6px;
+    left: 23px;
+    z-index: 6;
+    transition: .6s;
+    
+
+}
+.crank {
+    position: absolute;
+    bottom: 74px;
+    left: 210px;
+    z-index: 2;
+    transition: .6s;
+    
+}
+.seat {
+    position: absolute;
+    left: 272px;
+    bottom: 417px;
+    transition: .6s;
+    
+} 
+.frame {
+    position: absolute;
+    left: 381px;
+    bottom: 147px;
+    transition: .6s;
+    
+}
+.headset {
+    position: absolute;
+    left: 648.5px;
+    bottom: 492px;
+    transition: .6s;
+    
+}
+
+.scalpel {
+    width: 1100px;
+    transition: .6s;
+    display: flex;
+    align-content: center;
+    transition: .6s;
+}
+.scalpel-click {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+}
+.front-wheel-click {
+    opacity: 1;    
+    position: absolute;
+    left: 70%;
+    bottom: 10px;
+    z-index: 2;
+}
+
+.rear-wheel-click {
+    right: 0px;
+    bottom: 10px;
+    z-index: 2;
+}
+
+.crank-click {
+    left: 20%;
+    top: 200px;
+}
+
+.headset-click {
+    left: 80%;
+    top: 200px;
+}
+
+.seat-click {
+    left: 0;
+    top: 200px;
+}
+
+.frame-click {
+    left: 40%;
+    top: 50px;
+}
+.clickMe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+    color: white;
+    background: #222222;
+    opacity: .7;
+    width: 100%;
+    font-size: 30px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 3;
+}
+.clickMe-click {
+    margin-top: 20%;
+    width: 10%;
+    opacity: 1;
+}
+.infoBox {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: absolute;
+    background-color: rgb(146, 208, 80);
+    width: auto;
+    border-radius: 15px;
+    padding: 10px;
+    
+}
+.seat-info {
+    top: 100px;
+    left: 9%;
+}
+.rearWheel-info {
+    top: 380px;
+    left: 13%;
+}
+.crank-info {
+    bottom: 50px;
+    left: 35%;
+}
+.frontWheel-info {
+    right: 27%;
+    bottom: 5%;
+}
+.headset-info {
+    width: 250px;
+    right: 20%;
+    top: 10%;
+}
+.frame-info {
+    left: 35%;
+    top: 45%;
+}
+h1 {
+    margin-top: 10px;
+}

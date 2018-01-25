@@ -6,9 +6,11 @@ import Header from './components/styleComponents/Header';
 // import ComponentBody from './components/styleComponents/ComponentBody';
 import routes from './routes';
 // import HomeFooter from './components/styleComponents/HomeFooter';
+import {connect} from 'react-redux';
+import {changeHamClick} from './ducks/reducer';
 
 class App extends Component {
-
+ 
 
   render() {
     return (
@@ -20,5 +22,9 @@ class App extends Component {
     )
   }
 }
-
-export default App;
+function mapStateToProps(state){
+  return {
+    hamClick: state.hamClick
+  }
+}
+export default connect(mapStateToProps)(App);

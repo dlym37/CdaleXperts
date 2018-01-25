@@ -13,11 +13,16 @@ class Cart extends Component {
             subTotal: 0,
             tax: 0,
             total: 0,
-            isOpen: false
-
+            isOpen: false,
+            billingaddress : '',
+            billingcity : '',
+            billingstate : '',
+            billingcountry : '',
+            billingpostalcode : ''
         }
         this.handleCheckout = this.handleCheckout.bind(this);
         this.handleExit = this.handleExit.bind(this);
+
     }
 
     onToken = (token) => {
@@ -30,8 +35,9 @@ class Cart extends Component {
 
     removeFromCart(i) {
         console.log(i);
-        axios.delete('/api/cart/remove', {
+        axios.delete('/api/cart/remove', { data : {
             index: i
+        }
         }).then(resp => {
             axios.get('/api/cart/data').then(({ data }) => {
                 // console.log(data);
@@ -90,9 +96,15 @@ class Cart extends Component {
         })
     }
 
+    handleAddress(type, value){
+        this.setState({
+            type: value
+        })
+    }
+
     componentDidMount() {
         axios.get('/api/cart/data').then(({ data }) => {
-            // console.log(data);
+            console.log(data);
             this.setState({
                 products: data.prod,
                 subTotal: data.subTotal,
@@ -157,6 +169,38 @@ class Cart extends Component {
 
                 </div>
                 <div className={this.state.isOpen ? 'modal focus' : 'modal'}>
+                    <h1>Shipping Information:</h1>
+                    <div className='shipInfo'>
+                        <div className='addDiv'>
+                            <h3>*Address:</h3>
+                            <input onChange={(e) => this.handleAddress('billingaddress', e.target.value)}className='inputs' />
+                        </div>
+                        <div className='addDiv'>
+                            <h3>*City:</h3>
+                            <input onChange={(e) => this.handleAddress('billingcity', e.target.value)}className='inputs' />
+                        </div>
+                        <div className='addDiv'>
+                            <h3>*State:</h3>
+                            <input onChange={(e) => this.handleAddress('billingstate', e.target.value)}className='inputs' />
+                        </div>
+                        <div className='addDiv'>
+                            <h3>*Country:</h3>
+                            <input onChange={(e) => this.handleAddress('billingcountry', e.target.value)}className='inputs' />
+                        </div>
+                        <div className='addDiv'>
+                            <h3>*Zip Code:</h3>
+                            <input onChange={(e) => this.handleAddress('billingpostalcode', e.target.value)}className='inputs' />
+                        </div>
+                        <div className='addDiv'>
+                            <h3>*Email:</h3>
+                            <input className='inputs' />
+                        </div>
+                        <div className='addDiv'>
+                            <h3>Phone:</h3>
+                            <input className='inputs' />
+                        </div>
+                    </div>
+                    <h6 className='required'>* required fields</h6>
                     <button className='xButt' onClick={this.handleExit}>X</button>
                     <StripeCheckout
                         className='stripe'
