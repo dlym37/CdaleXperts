@@ -36,13 +36,13 @@ module.exports = {
     },
     remove_from_cart: (req, res) => {
         const {index} = req.body;
-        console.log('this is the req', req.body)
-        console.log(index)
+        // console.log('this is the req', req.body)
+        // console.log(index)
         req.session.cart.splice(index, 1);
         res.send('Product Removed');
     },
     update_qty_cart: (req , res) => {
-        console.log(req.session.cart)
+        // console.log(req.session.cart)
         const {value , index} = req.body;
         req.session.cart[index].qty = value;
 

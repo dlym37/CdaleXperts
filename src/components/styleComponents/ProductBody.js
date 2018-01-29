@@ -3,7 +3,6 @@ import '../../styles/product.css'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-
 export default class ProductBody extends Component {
     constructor() {
         super();

@@ -1,9 +1,9 @@
 module.exports = {
     checkForSession : (req, res, next) => {
-        console.log(req.session.cart);
+        // console.log(req.session.cart);
         if(!req.session.cart) {//is this where it is checking to see if they have visisted before?
             req.session.cart = []
-            console.log('something more descriptive');
+            // console.log('something more descriptive');
 
         }
         // req.session.cart = [('hello')];

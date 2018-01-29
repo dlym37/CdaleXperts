@@ -11,3 +11,4 @@ CREATE TABLE customer (
     phone VARCHAR(24),
     email VARCHAR(60)
     )
+    

@@ -21,7 +21,8 @@ export function changeHamClick() {
 }
 
 export function getUserInfo(){
-    let userData = axios.get('/auth/me').then ( res => {
+    let userData = axios.get('/auth/me').then( res => {
+        console.log('reducer user', res.data)        
         return res.data;
     })
     return {

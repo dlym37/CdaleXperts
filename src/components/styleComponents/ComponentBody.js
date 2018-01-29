@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import ProductRows from './ProductRows';
+import { Parallax } from 'react-parallax';
+
 
 class ComponentBody extends Component {
-    constructor(){
+    constructor() {
         super();
         this.state = {
             page: ''
@@ -15,14 +17,14 @@ class ComponentBody extends Component {
                 <div className='titleOfPage'>
                     <h2>{this.props.match.params.type.toUpperCase()}</h2>
                 </div>
-                <div className='tree-pic background'>
+                <div className='mainDiv'>
+                {/* <Parallax strength={10}> */}
                         <ProductRows type={this.props.match.params.type}
-                subType={this.props.match.params.subType} />
-                    
-
-                </div>
+                            subType={this.props.match.params.subType} />
+                 {/* </Parallax> */}
+                 </div>
                 <div className='bgColor'></div>
-
+            
             </div>
         )
 

@@ -32,8 +32,7 @@ class HomeNav extends Component {
         this.handleHam = this.handleHam.bind(this);
 
     }
-    handleAccount() {
-        this.props.getUserInfo();
+    handleAccount(user) {
         if (this.state.myAcct === false) {
             this.setState({
                 myAcct: true
@@ -43,7 +42,6 @@ class HomeNav extends Component {
                 myAcct: false
             })
         }
-        console.log(this.props.user);
     }
     handleSearch() {
         if (this.state.searching === false) {
@@ -68,8 +66,14 @@ class HomeNav extends Component {
         }
     }
 
+   componentDidMount(){
+    this.props.getUserInfo();
+    
+    }
+
     render() {
         const {hamClick, user} = this.props
+        // console.log('render user', user);
         return (
             <div>
                 <div className="App">
@@ -134,7 +138,7 @@ class HomeNav extends Component {
                                 </div>
                             </div>
                             <div className='nav-item'>
-                                <Link to="/gear" className='nav-title'> <div >Gear</div>
+                                <Link to="/gear/all" className='nav-title'> <div >Gear</div>
                                 </Link>
                                 <div className="sub-menu sub-menu-imgs" >
                                     <div className='backdrop'>
@@ -211,7 +215,7 @@ class HomeNav extends Component {
                             {this.state.searching ? 'searchField' : 'searchField searchOff'} />
                         <ul className="navUl">
                             <li className='search' onClick={this.handleSearch}>Search</li>
-                            <li className='accountText' onClick={this.handleAccount}>My Account</li>
+                            <li className='accountText' onClick={() => this.handleAccount(user)}>My Account</li>
                             <Link to="/cart"><li>Cart</li></Link>
                         </ul>
                     </header>
@@ -270,7 +274,7 @@ class HomeNav extends Component {
                 <div className={this.state.myAcct ? 'acct dispBox' : 'acct'}>
                     <h1>My Account</h1>
                     <a href={process.env.REACT_APP_LOGIN} className='logButt'>
-                        <div >{user.length > 0 ? 'Logout': 'Login'}</div>
+                        <div >{user.customerid ? 'Logout': 'Login'}</div>
                     </a>
                 </div>
             </div>

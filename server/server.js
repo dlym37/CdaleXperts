@@ -12,18 +12,20 @@ const {
   AUTH_DOMAIN,
   AUTH_CLIENT_ID,
   AUTH_CLIENT_SECRET,
-  AUTH_CALLBACK_URL
+  AUTH_CALLBACK_URL,
+  SESSION_SECRET
 } = process.env;
 
 const bikes_controller = require('./controllers/bikes_controller');
 const cart_controller = require('./controllers/cart_controller');
+const gear_controller = require('./controllers/gear_controller');
 const userMiddleware = require('./userMiddlewares');
 
 const app = express();
 app.use(bodyParser.json());
 
 app.use(session({
-  secret: process.env.SESSION_SECRET,
+  secret: SESSION_SECRET,
   resave: false,
   saveUninitialized: true
 }))
@@ -43,45 +45,48 @@ passport.use(new Auth0Strategy({
   callbackURL: AUTH_CALLBACK_URL,
   scope: 'openid profile'
 }, function(accessToken, refreshToken, extraParams, profile, done){
-  let { user_id} = profile;
+  let {user_id} = profile;
   let {givenName , familyName} = profile.name;
   console.log('Google Profile', profile);
 
   const db = app.get('db');
 
   db.find_user([user_id]).then(function(users){//need to create find_user
-    console.log('user_id', user_id);
     if(!users[0]){
       db.create_user([ //need to create create_user
         givenName,
         familyName,
         user_id
       ]).then( user => {
+        // console.log('user_id', user[0].id);
         return done(null, user[0].id)
       })
     } else {
-      return done(null, users[0].id)
+      // console.log('user_id-------------------------', users[0]);
+      return done(null, users[0].customerid)
     }
   })
 }))
 
 passport.serializeUser((id, done) => {
-  done(null, id);
+  return done(null, id);
 })
 passport.deserializeUser((id, done) => {
+  // console.log('-------------------------id--------------------', id);
   app.get('db').find_session_user([id])
   .then(function(user){
+    console.log(user)
     return done(null, user[0]);
   })
 })
 
 app.get('/auth', passport.authenticate('auth0'));
 app.get('/auth/callback', passport.authenticate('auth0', {//if someone is authenticated, the  callback function in passport.use is fired off
-    successRedirect: 'http://localhost:3000/#/private',
+    successRedirect: 'http://localhost:3000/#/',
     failureRedirect: 'http://localhost:3000/'
 }));
 app.get('/auth/me', (req, res) => {
-  console.log(req.user)
+  // console.log('authme', req.user);
     if (!req.user) {
         res.status(404).send('User not found.');
     } else {
@@ -107,6 +112,8 @@ app.put('/api/quantity', cart_controller.update_quantity);
 app.get('/api/cart/data', cart_controller.get_cart_data);
 app.delete('/api/cart/remove', cart_controller.remove_from_cart);
 app.put('/api/update/quantity', cart_controller.update_qty_cart);
+//gear
+app.get('/api/gear/all', gear_controller.get_all_gear);
 
 //stripe
 app.post('/api/payment', function (req, res, next) {

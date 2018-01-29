@@ -10,6 +10,7 @@ import MyAccount from './components/rightNav/MyAccount';
 import HomeBody from './components/styleComponents/HomeBody';
 import ComponentBody from './components/styleComponents/ComponentBody';
 import ProductBody from './components/styleComponents/ProductBody';
+import GearBody from './components/styleComponents/GearBody';
 
 
 
@@ -22,5 +23,6 @@ export default (
         <Route path="/search" component={Search}/>
         <Route path="/myAccount" component={MyAccount}/>
         <Route path="/bikes/:type/:subType" component={ComponentBody}/>
+        <Route path="/gear/:type" component={GearBody}/>
     </Switch>
 )

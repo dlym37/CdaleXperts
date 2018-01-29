@@ -4,6 +4,8 @@ import axios from 'axios';
 import StripeCheckout from 'react-stripe-checkout';
 import stripe from '../stripeKey';
 import Modal from 'react-modal';
+import {getUserInfo} from '../../ducks/reducer';
+import {connect} from 'react-redux';
 
 class Cart extends Component {
     constructor() {
@@ -103,6 +105,7 @@ class Cart extends Component {
     }
 
     componentDidMount() {
+        this.props.getUserInfo();
         axios.get('/api/cart/data').then(({ data }) => {
             console.log(data);
             this.setState({
@@ -119,7 +122,7 @@ class Cart extends Component {
 
     render() {
         const total = this.state.tax + this.state.subTotal;
-
+        const user = this.props.user;
 
         const cartItem = this.state.products.map((e, i) => {
             // console.log(this.state.products);
@@ -142,7 +145,6 @@ class Cart extends Component {
                     </div>
                     <hr className='hr'></hr>
                 </div>
-
 
             )
         })
@@ -215,4 +217,10 @@ class Cart extends Component {
     }
 }
 
-export default Cart
+function mapStateToProps(state){
+    return {
+        user: state.user
+    }
+}
+
+export default connect(mapStateToProps, {getUserInfo})(Cart);

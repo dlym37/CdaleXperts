@@ -1,31 +1,31 @@
 import React, { Component } from 'react';
 import '../../styles/productRows.css'
 import axios from 'axios';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default class ProductRows extends Component {
     constructor() {
         super();
         this.state = {
             products: []
-            
+
         }
     }
     componentDidMount() {
-        const {type, subType} = this.props
+        const { type, subType } = this.props
 
 
-        axios.get('/api/'+ type + '/' + subType).then(res => {
+        axios.get('/api/' + type + '/' + subType).then(res => {
             console.log(res);
             this.setState({
                 products: res.data
             })
         })
     }
-    componentWillReceiveProps(nextProps){
-        const {type, subType} = nextProps
+    componentWillReceiveProps(nextProps) {
+        const { type, subType } = nextProps
 
-        axios.get('/api/'+ type + '/' + subType).then(res => {
+        axios.get('/api/' + type + '/' + subType).then(res => {
             console.log(res);
             this.setState({
                 products: res.data
@@ -37,11 +37,11 @@ export default class ProductRows extends Component {
         const bike = this.state.products.map((element, index) => {
             return (
                 <div key={index} className="productBox">
-                   <Link to={`/product/${element.type}/${element.id ? element.id : element.id}`}> <div className='bike-pic'>
-                        <img src={element.picture} alt="bikePic" width="70%" />
-                    </div></Link>{/*need to figure out how to pass in the product title in the link source*/}
+                    <Link to={`/product/${element.type}/${element.id ? element.id : element.id}`} className='bike-pic'>
+                        <img src={element.picture} alt="bikePic" className='picture' />
+                    </Link>{/*need to figure out how to pass in the product title in the link source*/}
                     <h4>Title: {element.brand + " " + element.model + " "}
-                    {element.modelnum ? element.modelnum : element.drivetrain}</h4>
+                        {element.modelnum ? element.modelnum : element.drivetrain}</h4>
                     <p className='price'>Price: {"$" + element.price}</p>
                 </div>
             )
@@ -49,13 +49,14 @@ export default class ProductRows extends Component {
 
 
         return (
-            <div className='mainDiv'>
+            
+                <div className='tree-pic'>
 
-                <div className="product-cont">
-                   {bike}
+                    <div className="product-cont">
+                        {bike}
+                    </div>
                 </div>
 
-            </div>
         )
     }
 }

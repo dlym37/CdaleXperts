@@ -8,6 +8,8 @@ import routes from './routes';
 // import HomeFooter from './components/styleComponents/HomeFooter';
 import {connect} from 'react-redux';
 import {changeHamClick} from './ducks/reducer';
+import {withRouter} from 'react-router-dom';
+
 
 class App extends Component {
  
@@ -27,4 +29,4 @@ function mapStateToProps(state){
     hamClick: state.hamClick
   }
 }
-export default connect(mapStateToProps)(App);
+export default withRouter(connect(mapStateToProps)(App));
