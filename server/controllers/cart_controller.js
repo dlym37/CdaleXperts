@@ -47,5 +47,15 @@ module.exports = {
         req.session.cart[index].qty = value;
 
         res.send();
+    },
+    send_address: (req, res) => {
+        const {address, city, state, country, postalcode} = req.body;
+        // const {customerid} = req.user;
+        const customer = req.user && req.user.customerid ? req.user.customerid : null;
+        const db = req.app.get('db');
+        db.add_address_withID([customer, address, city, state, country, postalcode]).then ( resp => {
+                res.status(200).send(resp);
+        });
+        
     }
 }

@@ -2,11 +2,14 @@ import axios from 'axios';
 
 const initialState = {
     user: {},
-    hamClick: false
+    hamClick: false,
+    address: false
 }
 
 const HAM_CLICK = 'HAM_CLICK';
 const GET_USER_INFO = 'GET_USER_INFO';
+const CHANGE_ADDRESS = 'CHANGE ADDRESS';
+
 
 export function changeHamClick() {
         if(initialState.hamClick === false){
@@ -17,6 +20,17 @@ export function changeHamClick() {
     return {
         type: HAM_CLICK,
         payload: initialState.hamClick
+    }
+}
+
+export function changeAddress() {
+    
+    const guest = {
+        customerid : 'guest'
+    }
+    return {
+        type: CHANGE_ADDRESS,
+        payload: guest
     }
 }
 
@@ -37,6 +51,8 @@ export default function reducer(state = initialState, action) {
             return Object.assign({}, state, { hamClick: action.payload });
         case GET_USER_INFO + '_FULFILLED':
             return Object.assign({}, state, {user: action.payload});
+        case CHANGE_ADDRESS:
+            return Object.assign({}, state, {user: action.payload});    
         default:
             return state;
     }

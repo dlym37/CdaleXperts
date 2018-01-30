@@ -18,35 +18,36 @@ export default class GearRows extends Component {
 
 
         }
+        this.handlePricing = this.handlePricing.bind(this);
+        this.handleSelect = this.handleSelect.bind(this);
+        this.handleFiltering = this.handleFiltering.bind(this);
     }
+
     handlePricing(setting, value) {
-        if (setting = 'max') {
-            this.setState({
-                max: value
-            })
-        } else {
-            this.setState({
-                min: value
-            })
-        }
-    }
-    handleSelect(field, value){
         this.setState({
-            field : value
+            [setting] : value
         })
     }
-    handleFiltering(){
-        axios.get('/api/gear/filter', {
-            max: this.state.max,
-            min: this.state.min,
-            gear: this.state.gear,
-            gender: this.state.gender,
-            bikeType: this.state.bikeType
-        }).then(res => {
 
-        })//Need to do another axios call to get new data
-        //need to set products equal to the data that we are getting
-        //back to products on state
+    handleSelect(field, value){
+        // console.log('filter state', this.state)
+        this.setState({
+            [field] : value
+        })
+    }
+    handleFiltering(gear, index){
+        if (gear.price*100 <= Math.floor(Number(this.state.min)*100))
+            return false;
+        if(this.state.max !== 0 && this.state.max !== ''  && gear.price >= Number(this.state.max))
+            return false;
+        if (gear.subtype !== this.state.gear && this.state.gear !== 'all')
+            return false;
+        if(gear.gender !== this.state.gender && this.state.gender !== 'all')
+            return false;
+        if(gear.biketype !== this.state.bikeType && this.state.bikeType !== 'all')
+            return false;
+       
+        return true;
     }
     componentDidMount() {
         const { type } = this.props
@@ -71,7 +72,7 @@ export default class GearRows extends Component {
     }
 
     render() {
-        const gear = this.state.products.map((element, index) => {
+        const gear = this.state.products.filter(this.handleFiltering).map((element, index) => {
             return (
                 <div key={index} className="gear-box">
                     <Link to={`/product/${element.type}/${element.gearid}`} className='gear-pic'>
@@ -86,7 +87,7 @@ export default class GearRows extends Component {
 
 
         return (
-            <div className='gear-main'>
+            <div className='tree-pic'>
                 <div className='filter-row'>
                     <div className='filter-box'>
                         <div className='filter-title'>
@@ -95,8 +96,8 @@ export default class GearRows extends Component {
                         <div>
                             <div className='filter-option wrap'>
                                 <h2>Price:</h2>
+                                <input placeholder='Min' className='price-inputs' onChange={(e) => this.handlePricing('min', e.target.value)} />
                                 <input placeholder='Max' className='price-inputs' onChange={(e) => this.handlePricing('max', e.target.value)} />
-                                <input placeholder='Min' className='price-inputs' onChange={(e) => this.handlePricing('max', e.target.value)} />
                             </div>
                             <div className='filter-option'>
                                 <h2>Gear Type:</h2>
@@ -112,13 +113,13 @@ export default class GearRows extends Component {
                             <div className='filter-option' onChange={(e) => this.handleSelect('gender', e.target.value)}>
                                 <h2>Gender:</h2>
                                 <select className='select-options'>
-                                    <option>All</option>
-                                    <option value='womens'>Women's</option>
-                                    <option value='mens'>Men's</option>
+                                    <option value='all'>All</option>
+                                    <option value='Womens'>Women's</option>
+                                    <option value='Mens'>Men's</option>
                                 </select>
                             </div>
                             <div className='filter-option'>
-                                <h2>Bike Type:</h2>
+                                <h2>Biking Type:</h2>
                                 <select className='select-options' onChange={(e) => this.handleSelect('bikeType', e.target.value)}>
                                     <option value='all'>All</option>
                                     <option value='mountain'>Mountain</option>

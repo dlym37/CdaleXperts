@@ -7,7 +7,6 @@ import Header from './components/styleComponents/Header';
 import routes from './routes';
 // import HomeFooter from './components/styleComponents/HomeFooter';
 import {connect} from 'react-redux';
-import {changeHamClick} from './ducks/reducer';
 import {withRouter} from 'react-router-dom';
 
 

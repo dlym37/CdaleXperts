@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../../styles/header.css'
-import HomeBody from './HomeBody';
 import scalpel from '../../images/scalpel.jpg';
 import habit from '../../images/habit.jpg';
 import trigger from '../../images/trigger.jpg';
@@ -15,7 +14,7 @@ import clothing from '../../images/clothing.jpg';
 import forBike from '../../images/forBike.jpg';
 
 import {connect} from 'react-redux';
-import {changeHamClick, getUserInfo} from '../../ducks/reducer';
+import {changeHamClick, getUserInfo, changeAddress} from '../../ducks/reducer';
 
 
 class HomeNav extends Component {
@@ -23,7 +22,6 @@ class HomeNav extends Component {
         super();
         this.state = {
             myAcct: false,
-            logText: 'Login',
             searching: false,
             hamMenu: false
         }
@@ -273,8 +271,11 @@ class HomeNav extends Component {
                 </div>
                 <div className={this.state.myAcct ? 'acct dispBox' : 'acct'}>
                     <h1>My Account</h1>
-                    <a href={process.env.REACT_APP_LOGIN} className='logButt'>
-                        <div >{user.customerid ? 'Logout': 'Login'}</div>
+                    <a href={process.env.REACT_APP_LOGIN} className={user.customerid ? 'none' : 'logButt'}>
+                        <div >Login</div>
+                    </a>
+                    <a href='http://localhost:5000/auth/logout' className={user.customerid ? 'logButt' : 'none'}>
+                    <div>Logout</div>
                     </a>
                 </div>
             </div>
@@ -287,10 +288,11 @@ class HomeNav extends Component {
 function mapStateToProps(state){
     return {
         hamClick : state.hamClick,
-        user: state.user
+        user: state.user,
+        address: state.address
     }
 }
-export default connect( mapStateToProps, {changeHamClick, getUserInfo})(HomeNav);
+export default connect( mapStateToProps, {changeHamClick, getUserInfo, changeAddress})(HomeNav);
 
 
 

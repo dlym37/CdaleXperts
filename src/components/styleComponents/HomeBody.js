@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import HomeFooter from './HomeFooter';
 import '../../styles/footer.css'
 import { connect } from 'react-redux';
-import scalpel2 from '../../images/scalpel2.png'
 import frontWheelFork from '../../images/frontWheelFork.png'
 import crank from '../../images/crank.png'
 import rearWheel from '../../images/rearWheel.png'

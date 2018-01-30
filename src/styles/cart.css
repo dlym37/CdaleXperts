@@ -18,6 +18,7 @@
     
 }
 .product-stuff {
+    width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -98,7 +99,7 @@
 /*cart info (right side */
 .cart-div {
     height: 93vh;
-    width: 100%;
+    width: 30%;
     font-size: 25px;
     font-family: 'play', sans-serif;        
     display: flex;
@@ -218,4 +219,23 @@
 }
 .required {
     font-size: 10px;
+}
+.checkout-options{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.checkbutt{
+    cursor: pointer;
+    border: none;
+    background: rgb(146, 208, 80);
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
+    color: white;
+}
+.hr {
+    width: 90%;
 }

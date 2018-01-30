@@ -112,9 +112,9 @@ app.put('/api/quantity', cart_controller.update_quantity);
 app.get('/api/cart/data', cart_controller.get_cart_data);
 app.delete('/api/cart/remove', cart_controller.remove_from_cart);
 app.put('/api/update/quantity', cart_controller.update_qty_cart);
+app.post('/api/address', cart_controller.send_address);
 //gear
 app.get('/api/gear/all', gear_controller.get_all_gear);
-
 //stripe
 app.post('/api/payment', function (req, res, next) {
   //convert amount to pennies

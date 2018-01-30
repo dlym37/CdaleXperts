@@ -1,13 +1,14 @@
 .gear-main {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-content: space-between;
     width: 100%;
-    height: 100%;
+    height: auto; 
 }
+
 .gear-cont {
     width: 80%;
-    height: 100vh;
+    height: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -15,7 +16,7 @@
 }
 .gear-box {
     width: 30%;
-    height: 35%;
+    height: 25vh;
     background-color: white;
     margin: 10px;
     display: flex;
@@ -38,6 +39,7 @@
 /* All the filter things */
 .filter-row {
     width: 20%;
+    height: auto;
     display: flex;
     align-content: space-between;
     justify-content: center;
@@ -52,6 +54,7 @@
     margin-left: 20px;
     color: white;
     position: fixed;
+    top: 50%;
     border-style: solid;
     border-width: 1px;
     border-color: white;
@@ -100,4 +103,7 @@
 }
 .wrap {
     flex-wrap: wrap;
+}
+.flex {
+    display: flex;
 }

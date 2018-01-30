@@ -111,9 +111,8 @@ nav {
   height: auto;
   display: flex;
   background-image: url('./images/treeline.png');
-  background-repeat: no-repeat;
   background-color: #171207;
-  /* position: fixed; */
+  background-repeat: no-repeat;
 }
 .bgColor {
   width: 100%;
@@ -169,7 +168,7 @@ ul a {
   -ms-transform: translate(-50%, -50%); */
 }
 .logButt{
-  border: none;
+  text-decoration: none;
   background: rgb(146, 208, 80);
   color: white;
   width: 80%;
