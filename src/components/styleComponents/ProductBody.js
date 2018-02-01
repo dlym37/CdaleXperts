@@ -105,7 +105,7 @@ export default class ProductBody extends Component {
                                         </div>
 
                                     </div>
-                                    <div className='flex'>
+                                    <div className='adding'>
                                         <div >
                                             <h1>Qty:</h1>
                                             <input onChange={(e) => this.updateQuantity(e.target.value)} />

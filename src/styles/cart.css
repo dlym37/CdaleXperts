@@ -137,10 +137,11 @@
     border: none;
     background-color: rgb(146, 208, 80);
     color: white;
-    width: 250px;
+    width: 80%;
     height: 75px;
     font-size: 30px;
     cursor: pointer;
+    margin-top: 20px;
 }
 
 /* Shipping info */
@@ -240,4 +241,18 @@
 }
 .hr {
     width: 90%;
+}
+@media (max-width: 1150px) {
+    .img {
+        height: 30vh;
+    }
+}
+@media (max-width: 950px) {
+    .img {
+        height: 25vh;
+    }
+    .product-title {
+        font-size: 25px;
+    }
+
 }

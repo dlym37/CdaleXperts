@@ -10,7 +10,7 @@ module.exports ={
         const db = req.app.get('db');
         const request = req.query.value;
 
-        const mountain = db.search_mountain([request]);
+        const mountain = db.search_mountain([request.toLowerCase()]);
         const road = db.search_road([request]);
         const gear = db.search_gear([request]);
 
@@ -46,3 +46,30 @@ module.exports ={
         })
     }
 }
+
+// function capitalize(str){
+//     var split = str.split('')
+//     var spaces = split.indexOf(' ');
+//     var index = [];
+//     index.push(-1);
+//     while (spaces != -1){
+//       index.push(spaces);
+//       spaces = split.indexOf(' ', spaces + 1);
+//     }
+//     function doIt (arr1, arr2){
+//       var idx = [];
+//       var letters = [];
+//       for(var i = 0; i < arr2.length; i++){
+//       idx.push(arr2[i]+1);
+//       var capital = arr1[arr2[i]+1].toUpperCase();
+//       letters.push(capital);
+//     }
+//     for(var i =0; i < idx.length; i++){
+//       arr1.splice(idx[i], 1, letters[i])
+//     }
+//     console.log(idx, letters);
+//     return arr1.join('')
+//     }
+    
+//     return doIt(split, index);
+//   }

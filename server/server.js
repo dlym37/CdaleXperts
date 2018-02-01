@@ -82,8 +82,8 @@ passport.deserializeUser((id, done) => {
 
 app.get('/auth', passport.authenticate('auth0'));
 app.get('/auth/callback', passport.authenticate('auth0', {//if someone is authenticated, the  callback function in passport.use is fired off
-    successRedirect: 'http://localhost:3000/#/',
-    failureRedirect: 'http://localhost:3000/'
+    successRedirect: process.env.REACT_APP_SUCCESS,
+    failureRedirect: process.env.REACT_APP_FAILURE
 }));
 app.get('/auth/me', (req, res) => {
   // console.log('authme', req.user);
@@ -96,7 +96,7 @@ app.get('/auth/me', (req, res) => {
 
 app.get('/auth/logout', function (req, res){
   req.logOut();
-  res.redirect('http://localhost:3000/')
+  res.redirect(process.env.REACT_APP_FAILURE)
 })
 
 //mountain

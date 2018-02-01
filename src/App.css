@@ -22,9 +22,7 @@
 .App-logo {
   border-bottom-right-radius: 15px;
   box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.281);
-  background-size: cover;
-  background-color: white;
-}
+  }
 .buttDiv2 {
   display: flex;
   flex-direction: column;

@@ -181,7 +181,6 @@ class Cart extends Component {
                             <div className='tax'>Tax: ${this.state.tax.toFixed(2)} </div>
                             <div>Total Price: </div>
                             <div className='total'>${this.state.total.toFixed(2)}</div>
-                            <button className='cont-shop-butt'>Continue Shopping</button>
                             <button className='checkout-butt' onClick={this.handleCheckout}>Checkout
 
                             </button>

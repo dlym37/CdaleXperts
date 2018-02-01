@@ -292,7 +292,7 @@ class HomeNav extends Component {
                     <a href={process.env.REACT_APP_LOGIN} className={user.customerid ? 'none' : 'logButt'}>
                         <div >Login</div>
                     </a>
-                    <a href='http://localhost:5000/auth/logout' className={user.customerid ? 'logButt' : 'none'}>
+                    <a href={process.env.REACT_APP_LOGOUT} className={user.customerid ? 'logButt' : 'none'}>
                         <div>Logout</div>
                     </a>
                 </div>
