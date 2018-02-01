@@ -24,5 +24,6 @@ export default (
         <Route path="/myAccount" component={MyAccount}/>
         <Route path="/bikes/:type/:subType" component={ComponentBody}/>
         <Route path="/gear/:type" component={GearBody}/>
+        
     </Switch>
 )

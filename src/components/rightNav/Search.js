@@ -5,9 +5,9 @@ class Search extends Component {
    
     render() {
         return (
-            <div>
+            <div>Search
 
-                <ComponentBody title="Search" />
+                {/* <ComponentBody title="Search" /> */}
                 
             </div>
 

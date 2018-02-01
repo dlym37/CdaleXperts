@@ -12,9 +12,11 @@ import slate from '../../images/slate.jpg';
 import gear from '../../images/gear.jpg';
 import clothing from '../../images/clothing.jpg';
 import forBike from '../../images/forBike.jpg';
+import axios from 'axios';
+import {withRouter} from 'react-router-dom';
 
-import {connect} from 'react-redux';
-import {changeHamClick, getUserInfo, changeAddress} from '../../ducks/reducer';
+import { connect } from 'react-redux';
+import { changeHamClick, getUserInfo, changeAddress, handleSubmit } from '../../ducks/reducer';
 
 
 class HomeNav extends Component {
@@ -23,11 +25,14 @@ class HomeNav extends Component {
         this.state = {
             myAcct: false,
             searching: false,
-            hamMenu: false
+            hamMenu: false,
+            search: ''
         }
         this.handleAccount = this.handleAccount.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.handleHam = this.handleHam.bind(this);
+        this.handleSearching = this.handleSearching.bind(this);
+        this.test = this.test.bind(this);
 
     }
     handleAccount(user) {
@@ -52,6 +57,13 @@ class HomeNav extends Component {
             })
         }
     }
+    handleSearching(val) {
+
+        this.setState({
+            search: val
+        })
+    }
+    
     handleHam() {
         if (this.state.hamMenu === false) {
             this.setState({
@@ -64,13 +76,17 @@ class HomeNav extends Component {
         }
     }
 
-   componentDidMount(){
-    this.props.getUserInfo();
-    
-    }
+    componentDidMount() {
+        this.props.getUserInfo();
 
+    }
+    test() {
+        console.log('hit all the things');
+        this.props.handleSubmit(this.state.search)
+        this.props.history.push('/search');
+    }
     render() {
-        const {hamClick, user} = this.props
+        const { hamClick, user } = this.props
         // console.log('render user', user);
         return (
             <div>
@@ -209,8 +225,10 @@ class HomeNav extends Component {
 
 
                         </nav>
-                        <input placeholder='Search' className=
-                            {this.state.searching ? 'searchField' : 'searchField searchOff'} />
+                        <form onSubmit={this.test}>
+                            <input placeholder='Search' className=
+                                {this.state.searching ? 'searchField' : 'searchField searchOff'} onChange={e => this.handleSearching(e.target.value)} />
+                        </form>
                         <ul className="navUl">
                             <li className='search' onClick={this.handleSearch}>Search</li>
                             <li className='accountText' onClick={() => this.handleAccount(user)}>My Account</li>
@@ -222,51 +240,51 @@ class HomeNav extends Component {
                 <div className={hamClick ? 'hamNav hamOn' : 'hamNav'}>
                     <nav className='hamList'>
                         <div className='hamOption'>
-                        <Link to="/bikes/mountain/all"><div>Mountain</div></Link>
+                            <Link to="/bikes/mountain/all"><div>Mountain</div></Link>
                             <div className='hamOption-menu'>
-                            <Link to="/bikes/mountain/cross-country"><div className='hamOption-menu-sub'>Cross-Country</div></Link>
-                            <Link to="/bikes/mountain/trail"> <div className='hamOption-menu-sub'>Trail</div></Link>
-                            <Link to="/bikes/mountain/all-mountain"> <div className='hamOption-menu-sub'>All-Mountain</div></Link>
-                            <Link to="/bikes/mountain/enduro"> <div className='hamOption-menu-sub'>Enduro</div></Link>
+                                <Link to="/bikes/mountain/cross-country"><div className='hamOption-menu-sub'>Cross-Country</div></Link>
+                                <Link to="/bikes/mountain/trail"> <div className='hamOption-menu-sub'>Trail</div></Link>
+                                <Link to="/bikes/mountain/all-mountain"> <div className='hamOption-menu-sub'>All-Mountain</div></Link>
+                                <Link to="/bikes/mountain/enduro"> <div className='hamOption-menu-sub'>Enduro</div></Link>
                             </div>
                         </div>
                         <div className='hamOption'>
-                        <Link to="/bikes/road/all"><div>Road</div></Link>
+                            <Link to="/bikes/road/all"><div>Road</div></Link>
                             <div className='hamOption-menu'>
-                            <Link to="/bikes/road/endurance"> <div className='hamOption-menu-sub'>Endurance</div></Link>
-                            <Link to="/bikes/road/race-elite"> <div className='hamOption-menu-sub'>Elite-Race</div></Link>
-                            <Link to="/bikes/road/race"> <div className='hamOption-menu-sub'>Race</div></Link>
-                            <Link to="/bikes/road/other"> <div className='hamOption-menu-sub'>Other</div></Link>
+                                <Link to="/bikes/road/endurance"> <div className='hamOption-menu-sub'>Endurance</div></Link>
+                                <Link to="/bikes/road/race-elite"> <div className='hamOption-menu-sub'>Elite-Race</div></Link>
+                                <Link to="/bikes/road/race"> <div className='hamOption-menu-sub'>Race</div></Link>
+                                <Link to="/bikes/road/other"> <div className='hamOption-menu-sub'>Other</div></Link>
                             </div>
                         </div>
                         <div className='hamOption'>
-                        <Link to="/gear"><div>Gear</div></Link>
+                            <Link to="/gear"><div>Gear</div></Link>
                             <div className='hamOption-menu'>
-                            <Link to="/gear"><div className='hamOption-menu-sub'>Gear</div></Link>
-                            <Link to="/gear"><div className='hamOption-menu-sub'>Clothes/Apparel</div></Link>
-                            <Link to="/gear"><div className='hamOption-menu-sub'>For Bike</div></Link>
+                                <Link to="/gear"><div className='hamOption-menu-sub'>Gear</div></Link>
+                                <Link to="/gear"><div className='hamOption-menu-sub'>Clothes/Apparel</div></Link>
+                                <Link to="/gear"><div className='hamOption-menu-sub'>For Bike</div></Link>
                             </div>
                         </div>
                         <div className='hamOption'>
-                        <Link to="/parts"><div>Parts</div></Link>
+                            <Link to="/parts"><div>Parts</div></Link>
                             <div className='hamOption-menu'>
-                            <Link to="/parts"><div className='hamOption-menu-sub'>Cross-Country</div></Link>
-                            <Link to="/parts"> <div className='hamOption-menu-sub'>Trail</div></Link>
-                            <Link to="/parts"><div className='hamOption-menu-sub'>All-Mountain</div></Link>
-                            <Link to="/parts"> <div className='hamOption-menu-sub'>Enduro</div></Link>
+                                <Link to="/parts"><div className='hamOption-menu-sub'>Cross-Country</div></Link>
+                                <Link to="/parts"> <div className='hamOption-menu-sub'>Trail</div></Link>
+                                <Link to="/parts"><div className='hamOption-menu-sub'>All-Mountain</div></Link>
+                                <Link to="/parts"> <div className='hamOption-menu-sub'>Enduro</div></Link>
                             </div>
                         </div>
                         <div className='hamOption'>
-                        <Link to="/accessories"><div>Accessories</div></Link>
+                            <Link to="/accessories"><div>Accessories</div></Link>
                             <div className='hamOption-menu'>
-                            <Link to="/accessories"> <div className='hamOption-menu-sub'>Cross-Country</div></Link>
-                            <Link to="/accessories">  <div className='hamOption-menu-sub'>Trail</div></Link>
-                            <Link to="/accessories">  <div className='hamOption-menu-sub'>All-Mountain</div></Link>
-                            <Link to="/accessories">   <div className='hamOption-menu-sub'>Enduro</div></Link>
+                                <Link to="/accessories"> <div className='hamOption-menu-sub'>Cross-Country</div></Link>
+                                <Link to="/accessories">  <div className='hamOption-menu-sub'>Trail</div></Link>
+                                <Link to="/accessories">  <div className='hamOption-menu-sub'>All-Mountain</div></Link>
+                                <Link to="/accessories">   <div className='hamOption-menu-sub'>Enduro</div></Link>
 
                             </div>
                         </div>
-                        
+
                     </nav>
                 </div>
                 <div className={this.state.myAcct ? 'acct dispBox' : 'acct'}>
@@ -275,7 +293,7 @@ class HomeNav extends Component {
                         <div >Login</div>
                     </a>
                     <a href='http://localhost:5000/auth/logout' className={user.customerid ? 'logButt' : 'none'}>
-                    <div>Logout</div>
+                        <div>Logout</div>
                     </a>
                 </div>
             </div>
@@ -285,14 +303,14 @@ class HomeNav extends Component {
     }
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state) {
     return {
-        hamClick : state.hamClick,
+        hamClick: state.hamClick,
         user: state.user,
         address: state.address
     }
 }
-export default connect( mapStateToProps, {changeHamClick, getUserInfo, changeAddress})(HomeNav);
+export default withRouter(connect(mapStateToProps, { changeHamClick, getUserInfo, changeAddress, handleSubmit })(HomeNav));
 
 
 

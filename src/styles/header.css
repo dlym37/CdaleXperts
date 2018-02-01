@@ -135,6 +135,9 @@
     font-size: 25px;
     width: 500px;
   }
+  .searchField:focus {
+      outline: none;
+  }
   .searchOff {
       display: none;
   }
@@ -208,7 +211,28 @@
       padding: 10px;
       font-family: 'play', sans-serif; 
       
+      
   }
+  @media (max-width : 490px){
+    .hamNav {
+        left: -40%;
+    }
+}
+  @media (max-width : 425px){
+    .hamNav {
+        left: -45%;
+    }
+}
+@media (max-width : 380px){
+    .hamNav {
+        left: -50%;
+    }
+}
+@media (max-width : 340px){
+    .hamNav {
+        left: -55%;
+    }
+}
   .hamOn {
       left: 0px;
       opacity: 1;
@@ -243,4 +267,6 @@
       margin: 10px;
       color: white;
   }
+
+ 
  

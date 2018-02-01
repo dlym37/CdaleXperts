@@ -3,12 +3,26 @@ import axios from 'axios';
 const initialState = {
     user: {},
     hamClick: false,
-    address: false
+    address: false,
+    searchData: {}
 }
 
 const HAM_CLICK = 'HAM_CLICK';
 const GET_USER_INFO = 'GET_USER_INFO';
 const CHANGE_ADDRESS = 'CHANGE ADDRESS';
+const HANDLE_SUBMIT = 'HANDLE_SUBMIT';
+
+export function handleSubmit(val) {
+   var data= axios.get('/api/search?value=' + val).then(res => {
+    console.log('search results', res.data);
+      return res.data;  
+    })
+    // this.props.history.push('/search');
+    return {
+        type: HANDLE_SUBMIT,
+        payload: data
+    }
+}
 
 
 export function changeHamClick() {
@@ -52,7 +66,9 @@ export default function reducer(state = initialState, action) {
         case GET_USER_INFO + '_FULFILLED':
             return Object.assign({}, state, {user: action.payload});
         case CHANGE_ADDRESS:
-            return Object.assign({}, state, {user: action.payload});    
+            return Object.assign({}, state, {address: action.payload});
+        case HANDLE_SUBMIT:
+            return Object.assign({}, state, {searchData: action.payload});        
         default:
             return state;
     }

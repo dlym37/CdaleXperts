@@ -126,9 +126,6 @@ export default class GearRows extends Component {
                                     <option value='road'>Road</option>
                                 </select>
                             </div>
-                            <div className='butt-option'>
-                                <button className='filter-butt' onClick={this.handleFiltering}>Filter</button>
-                            </div>
                         </div>
                     </div>
                 </div>
