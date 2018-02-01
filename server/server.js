@@ -30,6 +30,8 @@ app.use(session({
   saveUninitialized: true
 }))
 app.use(userMiddleware.checkForSession);
+
+app.use( express.static( `${__dirname}/../build` ) );
 //Authentication setup
 app.use(passport.initialize());
 app.use(passport.session());
