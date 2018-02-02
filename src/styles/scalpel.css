@@ -165,5 +165,6 @@ h1 {
     .homeText {
         background: none;
         background-size: cover;
+        margin: 0px;
     }
 }

@@ -60,11 +60,7 @@
     justify-content: space-between;
     justify-content: center; 
   }
-  .App-logo {
-    padding-top: 20px;
-    height: 90px;
-    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.281);
-  }
+
   .logoDiv {
       display: flex;
       justify-content: center;

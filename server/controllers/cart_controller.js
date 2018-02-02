@@ -1,12 +1,13 @@
 module.exports = {
     update_quantity: (req, res) => {
 
-        const { productId, qty } = req.body;
+        const { productId, qty, type } = req.body;
 
 
         req.session.cart = [{
             product: productId,
-            qty: qty
+            qty: qty,
+            type: type
         }, ...req.session.cart];
        
         res.send();
@@ -14,10 +15,17 @@ module.exports = {
     get_cart_data: (req, res) => {
         const db = req.app.get('db');
         var cartArr = [];
-
+        console.log(req.session.cart);
         var product = req.session.cart.map((e, i) => {
+            if(e.type == 'mountain'){
             return db.mtn_cart_data([e.product])
+            } else if(e.type == 'road'){
+                return db.road_cart_data([e.product])
+            }else if(e.type == 'gear'){
+                return db.gear_cart_data([e.product])
+            }
         })
+        console.log('product', product)
 
         Promise.all(product).then((resp) => {
             var subTotal = 0;
@@ -34,6 +42,7 @@ module.exports = {
             res.status(200).send({prod, subTotal, tax, total});
         })
     },
+    
     remove_from_cart: (req, res) => {
         const {index} = req.body;
         // console.log('this is the req', req.body)

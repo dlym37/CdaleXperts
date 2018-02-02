@@ -118,7 +118,19 @@
   .nav-item .sub-menu-item:nth-child(4) .sub-menu-item-title{
     transition-delay: .1s;
   }
+  .home-txt {
+      font-size: 20px;
+      display: none;
+  }
+  .cont a {
+      text-decoration: none;
+      color: white;
+  }
+  
   .search {
+      cursor: pointer;
+  }
+  .search2 {
       cursor: pointer;
   }
 
@@ -133,7 +145,8 @@
     color: rgb(146, 208, 80);
     border: none;
     font-size: 25px;
-    width: 500px;
+    width: 75%;
+    margin-left: 10px;
   }
   .searchField:focus {
       outline: none;
@@ -267,6 +280,33 @@
       margin: 10px;
       color: white;
   }
-
+@media (max-width: 640px){
+    .main-pic {
+    }
+    .App-logo1 {
+        display: none;
+    }
+    .home-txt {
+        display: inline;
+    }
+}
+@media (max-width: 460px){
+    .navUl {
+        width: 100%;
+    }
+    .App-logo2 {
+        display: inline;
+        width: 80%;
+    }
+    .main-pic {
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}
+@media (max-width: 310px){
+    .hamNav {
+        left: -60%;
+    }
+}
  
  

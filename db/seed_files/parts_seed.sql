@@ -184,3 +184,18 @@ VALUES (1, 'Habit 27.5, 120mm, BallisTec Carbon',
   'Cannondale C3, 6061 Alloy, 1-1/8", 31.8, 0°, 35mm',
 'Fabric Radius Scoop', 'TransX dropper, Internal Routing, 31.6, 120mm drop', 
 'Integrated, 1-1/8 to 1.5", sealed angular contact bearings')
+
+INSERT INTO roadParts 
+(id, frame, bb, frontDer, rearDer, shifters,
+brakes, brakelevers, wheels, tires, handlebar, stem, saddle,
+seatpost, headset)
+VALUES
+(1, 'ALL-NEW Synapse Disc, BallisTec Hi-MOD Carbon, SAVE', 
+'FSA BB30 Bearings', 'Shimano Dura-Ace Di2 9150',
+'Shimano Dura-Ace Di2 9150', 'Shimano Dura-Ace Di2 9170 hydro disc',
+ 'Shimano Dura-Ace 9170, hydro disc, flat mount, 160/140mm',
+  'Shimano Dura-Ace Di2 9170 hydro disc',
+'Cannondale HollowGram SL, Carbon Clincher Disc, 19mm inner, 35mm deep',
+ 'Vittoria Corsa 700x28c', 'ENVE Carbon Road Compact, 31.8mm', 'ENVE Carbon Road, 31.8, 6 deg.',
+'Fabric Scoop Shallow Pro, Carbon Rail', 'Cannondale SAVE Carbon, 25.4x350mm (44-56), 400mm (58-61)',
+ 'Synapse Si, 25mm carbon top cap')

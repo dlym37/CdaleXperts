@@ -10,6 +10,7 @@ import seat from '../../images/seat.png'
 import frame from '../../images/frame.png'
 import '../../styles/scalpel.css';
 
+
 class HomeBody extends Component {
     constructor() {
         super();
@@ -86,34 +87,37 @@ class HomeBody extends Component {
                             <h2>Truvativ Stylo Eagle 6K, 32t</h2>
                         </div>
                         <div className={this.state.spread ? 'infoBox frontWheel-info' : 'none'}>
-                        <h1>Fork:</h1>
-                        <h2>Fox Float 34, Performance Elite Series, 120mm</h2>
-                        <h1>Rim:</h1>
-                        <h2>Stans Notubes ZTR ARCH S1 28hole</h2>
-                        <h1>Tire:</h1>
-                        <h2>Maxxis Ardent 2.4"</h2>
-                        <h1>Brake:</h1>
-                        <h2>SRAM Level TL hydro disc, 180/180mm, Centerline Rotors</h2>
+                            <h1>Fork:</h1>
+                            <h2>Fox Float 34, Performance Elite Series, 120mm</h2>
+                            <h1>Rim:</h1>
+                            <h2>Stans Notubes ZTR ARCH S1 28hole</h2>
+                            <h1>Tire:</h1>
+                            <h2>Maxxis Ardent 2.4"</h2>
+                            <h1>Brake:</h1>
+                            <h2>SRAM Level TL hydro disc, 180/180mm, Centerline Rotors</h2>
                         </div>
                         <div className={this.state.spread ? 'infoBox headset-info' : 'none'}>
-                        <h1>Handlebar:</h1>
-                        <h2>Cannondale C3 riser, Alloy, 4° upsweep, 9° backsweep, 760x15mm</h2>
-                        <h1>Stem:</h1>
-                        <h2>Cannondale C1, 6061 Alloy, 1-1/8", 60mm, 31.8, 5°</h2>
-                        <h1>Headset:</h1>
-                        <h2>Cannondale HeadShok Si</h2>
-                        <h1>Brake Levers:</h1>
-                        <h2>SRAM Level TL</h2>
-                        <h1>Shifters:</h1>
-                        <h2>SRAM GX Eagle 12-speed Trigger</h2>
+                            <h1>Handlebar:</h1>
+                            <h2>Cannondale C3 riser, Alloy, 4° upsweep, 9° backsweep, 760x15mm</h2>
+                            <h1>Stem:</h1>
+                            <h2>Cannondale C1, 6061 Alloy, 1-1/8", 60mm, 31.8, 5°</h2>
+                            <h1>Headset:</h1>
+                            <h2>Cannondale HeadShok Si</h2>
+                            <h1>Brake Levers:</h1>
+                            <h2>SRAM Level TL</h2>
+                            <h1>Shifters:</h1>
+                            <h2>SRAM GX Eagle 12-speed Trigger</h2>
                         </div>
                         <div className={this.state.spread ? 'infoBox frame-info' : 'none'}>
-                        <h1>Frame:</h1>
-                        <h2>Scalpel SE, BallisTec Carbon, Ai Offset</h2>
-                        <h1>Rear Shock:</h1>
-                        <h2>Fox Float Performance DPS EVOL SV, 3 Position Adjust 115mm Travel</h2>
+                            <h1>Frame:</h1>
+                            <h2>Scalpel SE, BallisTec Carbon, Ai Offset</h2>
+                            <h1>Rear Shock:</h1>
+                            <h2>Fox Float Performance DPS EVOL SV, 3 Position Adjust 115mm Travel</h2>
                         </div>
                     </div>
+
+                    <img src='https://www.cannondaleexperts.com/assets/images/artwork/cannondale-experts-logo.jpg' className="App-logo2" alt="logo" />
+
                     <div className={this.state.spread ? "homeText noText" : 'homeText'}>
                         <h1>Thanks for visiting the Cannondale Experts,</h1>
                         <p>your source for hard to find original Cannondale parts, tools,

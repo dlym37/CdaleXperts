@@ -19,9 +19,14 @@
   height: 70px;
 }
 
-.App-logo {
+.App-logo1 {
   border-bottom-right-radius: 15px;
   box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.281);
+  padding-top: 20px;
+  height: 90px;
+  }
+  .App-logo2 {
+    display: none;
   }
 .buttDiv2 {
   display: flex;
@@ -139,11 +144,14 @@ ul a {
   .App-header {
     justify-content: space-between;
   }
-  .App-logo {
+  .App-logo1 {
     border-bottom-left-radius: 15px;
   }
   .navUl{
     width: 30%;
+  }
+  .search {
+    display: none;
   }
 }
 .acct {

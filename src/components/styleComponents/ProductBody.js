@@ -8,7 +8,7 @@ export default class ProductBody extends Component {
         super();
         this.state = {
             product: [],
-            quantity: 0
+            quantity: 1
 
         }
         this.updateCart = this.updateCart.bind(this);
@@ -21,11 +21,12 @@ export default class ProductBody extends Component {
     }
     updateCart() {
 
-        const { id } = this.state.product[0]
+        const { id, type } = this.state.product[0]
         const { quantity } = this.state;
         axios.put('/api/quantity', {
             productId: id,
-            qty: quantity
+            qty: quantity,
+            type: type
         })
     }
     // alert(){
@@ -108,7 +109,7 @@ export default class ProductBody extends Component {
                                     <div className='adding'>
                                         <div >
                                             <h1>Qty:</h1>
-                                            <input onChange={(e) => this.updateQuantity(e.target.value)} />
+                                            <input placeholder='1' onChange={(e) => this.updateQuantity(e.target.value)} />
                                         </div>
 
                                         <button className='add-to-cart' onClick={this.updateCart} >Add to Cart</button>

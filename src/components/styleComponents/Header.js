@@ -13,7 +13,7 @@ import gear from '../../images/gear.jpg';
 import clothing from '../../images/clothing.jpg';
 import forBike from '../../images/forBike.jpg';
 import axios from 'axios';
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { changeHamClick, getUserInfo, changeAddress, handleSubmit } from '../../ducks/reducer';
@@ -26,7 +26,8 @@ class HomeNav extends Component {
             myAcct: false,
             searching: false,
             hamMenu: false,
-            search: ''
+            search: '',
+            blah: false
         }
         this.handleAccount = this.handleAccount.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
@@ -63,7 +64,7 @@ class HomeNav extends Component {
             search: val
         })
     }
-    
+
     handleHam() {
         if (this.state.hamMenu === false) {
             this.setState({
@@ -81,9 +82,11 @@ class HomeNav extends Component {
 
     }
     test() {
-        console.log('hit all the things');
+        var blah2 = false;
         this.props.handleSubmit(this.state.search)
-        this.props.history.push('/search');
+       
+            this.props.history.push('/search');
+        
     }
     render() {
         const { hamClick, user } = this.props
@@ -98,7 +101,7 @@ class HomeNav extends Component {
                             <span className="hamburger"></span>
                         </div>
                         <Link to="/">
-                            <img src='https://www.cannondaleexperts.com/assets/images/artwork/cannondale-experts-logo.jpg' className="App-logo" alt="logo" />
+                            <img src='https://www.cannondaleexperts.com/assets/images/artwork/cannondale-experts-logo.jpg' className="App-logo1" alt="logo" />
                         </Link>
                         <nav className={this.state.searching ? 'navOff' : ''}>
                             <div className='nav-item'>
@@ -172,7 +175,7 @@ class HomeNav extends Component {
 
                                 </div>
                             </div>
-                            <div className='nav-item'>
+                            {/* <div className='nav-item'>
                                 <Link to="/parts" className='nav-title'> <div >Parts</div>
                                 </Link>
                                 <div className="sub-menu sub-menu-imgs" >
@@ -221,10 +224,13 @@ class HomeNav extends Component {
                                     </div>
 
                                 </div>
-                            </div>
+                            </div> */}
 
 
                         </nav>
+                        <div className='cont'>
+                            <Link to="/"> <div className='home-txt'>Home</div> </Link>
+                        </div>
                         <form onSubmit={this.test}>
                             <input placeholder='Search' className=
                                 {this.state.searching ? 'searchField' : 'searchField searchOff'} onChange={e => this.handleSearching(e.target.value)} />
@@ -283,6 +289,9 @@ class HomeNav extends Component {
                                 <Link to="/accessories">   <div className='hamOption-menu-sub'>Enduro</div></Link>
 
                             </div>
+                        </div>
+                        <div className='hamOption'>
+                            <div className='search2' onClick={this.handleSearch}>Search</div>
                         </div>
 
                     </nav>

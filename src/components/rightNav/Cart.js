@@ -126,14 +126,13 @@ class Cart extends Component {
 
     componentDidMount() {
         this.props.getUserInfo();
-        axios.get('/api/cart/data').then(({ data }) => {
-            console.log(data);
+        axios.get(`/api/cart/data`).then(({ data }) => {
+            console.log('blah', data);
             this.setState({
                 products: data.prod,
                 subTotal: data.subTotal,
                 tax: data.tax,
                 total: data.total
-
             })
         })
 
@@ -192,9 +191,9 @@ class Cart extends Component {
                     <h1 className={user.customerid ? '' : 'none'}>Shipping Information:</h1>
                     <div className={user.customerid ? 'none' : 'checkout-options'}>
                         <a href={process.env.REACT_APP_LOGIN} >
-                            <button className='checkbutt' >Login</button>
+                            <button className={this.state.isOpen ? 'checkbutt' : 'none'} >Login</button>
                         </a>
-                        <button className='checkbutt' onClick={this.props.changeAddress}>Login As Guest</button>
+                        <button className={this.state.isOpen ? 'checkbutt' : 'none'} onClick={this.props.changeAddress}>Login As Guest</button>
                     </div>
                     <div className={user.customerid ? 'shipInfo' : 'none'}>
                         <div className='addDiv'>
@@ -225,17 +224,17 @@ class Cart extends Component {
                             <h3>Phone:</h3>
                             <input className='inputs' />
                         </div>
-                    </div>
-                    <h6 className={address ? 'required' : 'none'}>* required fields</h6>
-                    <button className='xButt' onClick={this.handleExit}>X</button>
                     <a onClick={this.sendAddress}>
                         <StripeCheckout
-                            className='stripe'
+                            className={this.state.isOpen ? 'none' : 'stripe'}
                             token={this.onToken}
                             stripeKey={stripe.pub_key}
                             amount={this.state.total.toFixed(2) * 100}
                         />
                     </a>
+                    </div>
+                    <h6 className={user.customerid ? 'required' : 'none'}>* required fields</h6>
+                    <button className={this.state.isOpen ? 'xButt' : 'none'} onClick={this.handleExit}>X</button>
                 </div>
             </div>
         )
