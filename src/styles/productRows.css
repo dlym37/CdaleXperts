@@ -17,6 +17,7 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 200px;
+    margin-bottom: 30vh;
 }
 
 .productBox{
@@ -28,6 +29,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-bottom: 20px;
     
 }
 .bike-pic {
@@ -36,7 +38,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: white;
     margin-bottom: 10px;
     
 }

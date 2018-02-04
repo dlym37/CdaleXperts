@@ -9,6 +9,7 @@ import MyAccount from './components/rightNav/MyAccount';
 
 import HomeBody from './components/styleComponents/HomeBody';
 import ComponentBody from './components/styleComponents/ComponentBody';
+import BikesBody from './components/styleComponents/BikesBody';
 import ProductBody from './components/styleComponents/ProductBody';
 import GearBody from './components/styleComponents/GearBody';
 
@@ -17,8 +18,8 @@ import GearBody from './components/styleComponents/GearBody';
 export default (
     <Switch>
         <Route exact path="/" component={HomeBody}/>
+        <Route path='/bike/:type/:id' component={BikesBody}/>
         <Route path='/product/:type/:id' component={ProductBody}/>
-
         <Route path="/cart" component={Cart}/>
         <Route path="/search" component={Search}/>
         <Route path="/myAccount" component={MyAccount}/>

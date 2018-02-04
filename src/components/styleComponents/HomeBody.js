@@ -47,21 +47,23 @@ class HomeBody extends Component {
                 <div className={hamClick ? 'main-pic opp' : 'main-pic'} className={this.state.spread ? 'main-pic bike-click' : 'main-pic'}>
                     <div className={this.state.spread ? 'scalpel scalpel-click' : 'scalpel'}>
                         { /* <img src={scalpel2} alt='scalpel 2' /> */}
-                        <img src={frontWheelFork} alt='front wheel' className={this.state.spread ? "front-wheel front-wheel-click" : 'front-wheel'} />
-                        <div className={this.state.spread ? "headset headset-click" : 'headset'}>
-                            <img src={headset} alt='headset' />
+                        <div className={this.state.spread ? "front-wheel front-wheel-click" : 'front-wheel'}>
+                            <img src={frontWheelFork} alt='front wheel' className='size2' />
                         </div>
-                        <div className={this.state.spread ? "crank crank-click" : 'crank'}>
-                            <img src={crank} alt='crank' className="crank" />
+                        <div className={this.state.spread ? "headset headset-click" : 'headset'}>
+                            <img src={headset} alt='headset' className='size2' />
+                        </div>
+                        <div className={this.state.spread ? 'cranks crank-click' : 'cranks'}>
+                            <img src={crank} alt='crank' className='size2' />
                         </div>
                         <div className={this.state.spread ? "seat seat-click" : 'seat'}>
-                            <img src={seat} alt='seat' />
+                            <img src={seat} alt='seat' className='size2' />
                         </div>
                         <div className={this.state.spread ? "rear-wheel rear-wheel-click" : 'rear-wheel'}>
-                            <img src={rearWheel} alt='rear wheel' />
+                            <img src={rearWheel} alt='rear wheel' className='size2' />
                         </div>
                         <div className={this.state.spread ? "frame frame-click" : 'frame'}>
-                            <img src={frame} alt='frame' />
+                            <img src={frame} alt='frame' className='size2' />
                         </div>
                         <div className={this.state.spread ? 'clickMe clickMe-click' : 'clickMe'} onClick={this.handleBike}>Click Me</div>
                         <div className={this.state.spread ? 'infoBox seat-info' : 'none'}>
@@ -121,11 +123,7 @@ class HomeBody extends Component {
                     <div className={this.state.spread ? "homeText noText" : 'homeText'}>
                         <h1>Thanks for visiting the Cannondale Experts,</h1>
                         <p>your source for hard to find original Cannondale parts, tools,
-                                and accessories. Our mission is to stock every available spare
-                                part for every Cannondale bicycle made in the past 10 years.
-                                We'll provide as many tech documents, graphics, and specs
-                                possible from Cannondale. We are willing to answer any
-                                question you have about your Cannondale.
+                                and accessories. 
 
                         </p>
 

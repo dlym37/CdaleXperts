@@ -25,28 +25,28 @@ export default class GearRows extends Component {
 
     handlePricing(setting, value) {
         this.setState({
-            [setting] : value
+            [setting]: value
         })
     }
 
-    handleSelect(field, value){
+    handleSelect(field, value) {
         // console.log('filter state', this.state)
         this.setState({
-            [field] : value
+            [field]: value
         })
     }
-    handleFiltering(gear, index){
-        if (gear.price*100 <= Math.floor(Number(this.state.min)*100))
+    handleFiltering(gear, index) {
+        if (gear.price * 100 <= Math.floor(Number(this.state.min) * 100))
             return false;
-        if(this.state.max !== 0 && this.state.max !== ''  && gear.price >= Number(this.state.max))
+        if (this.state.max !== 0 && this.state.max !== '' && gear.price >= Number(this.state.max))
             return false;
         if (gear.subtype !== this.state.gear && this.state.gear !== 'all')
             return false;
-        if(gear.gender !== this.state.gender && this.state.gender !== 'all')
+        if (gear.gender !== this.state.gender && this.state.gender !== 'all')
             return false;
-        if(gear.biketype !== this.state.bikeType && this.state.bikeType !== 'all')
+        if (gear.biketype !== this.state.bikeType && this.state.bikeType !== 'all')
             return false;
-       
+
         return true;
     }
     componentDidMount() {
@@ -96,8 +96,10 @@ export default class GearRows extends Component {
                         <div>
                             <div className='filter-option wrap'>
                                 <h2>Price:</h2>
-                                <input placeholder='Min' className='price-inputs' onChange={(e) => this.handlePricing('min', e.target.value)} />
-                                <input placeholder='Max' className='price-inputs' onChange={(e) => this.handlePricing('max', e.target.value)} />
+                                <div className='row-reverse'>
+                                    <input placeholder='Min' className='price-inputs' onChange={(e) => this.handlePricing('min', e.target.value)} />
+                                    <input placeholder='Max' className='price-inputs' onChange={(e) => this.handlePricing('max', e.target.value)} />
+                                </div>
                             </div>
                             <div className='filter-option'>
                                 <h2>Gear Type:</h2>

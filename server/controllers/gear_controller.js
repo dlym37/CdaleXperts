@@ -45,6 +45,14 @@ module.exports ={
             })
             res.status(200).send([...mtnInfo, ...roadInfo, ...gearInfo]);
         })
+    },
+    get_gear_info: (req, res) => {
+        const db = req.app.get('db');
+        const { id } = req.params;
+
+        db.get_gear_info([id]).then(result => {
+            res.status(200).send(result);
+        })
     }
 }
 

@@ -15,7 +15,7 @@
     margin-top: 200px;
 }
 .gear-box {
-    width: 30%;
+    width: 27%;
     height: 25vh;
     background-color: white;
     margin: 10px;
@@ -23,6 +23,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    Padding: 20px;
+}
+.gear-box h4 {
+    margin: 0 15px;
 }
 .gear-pic {
     width: 50%;
@@ -30,7 +34,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: white;
     margin-bottom: 10px;
 }
 .gear-img {
@@ -71,31 +74,40 @@
 .filter-option {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 10px;
 }
 .filter-option h2 {
     margin-right: 10px;
 }
+.row-reverse {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+}
 .price-inputs {
     background: black;
     border-width: 1px;
     border-color: white;
-    margin-right: 10px;
     margin-bottom: 5px;
     color: white;
     padding: 5px;
-    
+    width: 150px;
+    justify-content: right;    
 }
 .select-options {
     background: black;
     color: white;
     padding: 5px;
+    width: 150px;
+    
 }
 
 .butt-option {
     display: flex;
     flex-direction: row-reverse;
     padding: 10px;
+    width: 100%;
 }
 .filter-butt {
     border: none;
@@ -112,14 +124,11 @@
 }
 @media (max-width: 1270px){
     .gear-box {
-        width: 45%;
+        width: 40%;
     }
 }
 @media (max-width : 1060px){
-    .filter-option {
-        flex-direction: column;
-        align-items: left;
-    }
+    
     .filter-box {
         padding: 0px;
         margin-left: 0px;
@@ -127,6 +136,17 @@
     }
     .price-inputs {
         width: 125px;
+    }
+    .select-options {
+        width: 125px;
+    }
+}
+@media (max-width: 860px){
+    .price-inputs {
+        width: 100px;
+    }
+    .select-options {
+        width: 100px;
     }
 }
 @media (max-width : 770px){
@@ -146,6 +166,8 @@
     }
     .filter-option {
         font-size: 10px;
+        flex-direction: column;
+        align-items: left;
     }
     .gear-box {
         width: 80%;

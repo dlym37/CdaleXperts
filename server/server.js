@@ -108,8 +108,9 @@ app.get('/api/mountain/:subType', bikes_controller.get_mountain_styles);
 app.get('/api/road/all', bikes_controller.get_road);
 app.get('/api/road/:subType', bikes_controller.get_road_styles);
 //product
-app.get('/api/product/mountain/:id', bikes_controller.get_mountain_info);
-app.get('/api/product/road/:id', bikes_controller.get_road_info);
+app.get('/api/bike/mountain/:id', bikes_controller.get_mountain_info);
+app.get('/api/bike/road/:id', bikes_controller.get_road_info);
+app.get('/api/product/gear/:id', gear_controller.get_gear_info);
 //cart
 app.put('/api/quantity', cart_controller.update_quantity);
 app.get('/api/cart/data', cart_controller.get_cart_data);

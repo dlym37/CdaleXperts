@@ -1,6 +1,8 @@
 .flex{
     display: flex;
     justify-content: space-around;
+    margin-bottom: 13vh;
+    padding: 20px;
 }
 .flex2{
     display: flex;
@@ -17,7 +19,7 @@
     height: 50px;
     margin-top: 10px;
 }
-.product-image {
+.bike-image {
     background-color: white;
     width: 50%;
     height: 50vh;
@@ -25,25 +27,33 @@
     margin-top: 150px;
     padding: 10px;
 }
+.product-image {
+    background-color: white;
+    width: 30%;
+    height: 50vh;
+    /* margin: 25px 50px; */
+    margin-top: 150px;
+    padding: 10px;
+    box-shadow: inset 3px -3px 20px rgba(0, 0, 0, .4); 
+}
 .info-check {
     width: 40%;    
     display: flex;
     flex-direction: column;
     /* align-items: center; */
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 150px;
 }
 
 .product-info{
-    background-color: rgba(245, 245, 245, 0.829);
-    width: 100%;
+    background-color: white;
+    width: 90%;
     height: auto;
-    
     display: flex;
     flex-direction: column;
     /* align-items: center; */
     justify-content: space-around;
-    padding: 10px;
+    padding: 30px;
 }
 
 .padding {
@@ -62,6 +72,8 @@
     height: 50px;
     font-size: 20px;
     cursor: pointer;
+    border-radius: 5px;
+    /* box-shadow: inset 3px -3px 20px rgba(0, 0, 0, .4);   */
 }
 .checkout-div {
     display: flex;
@@ -73,15 +85,18 @@
     border: none;
     background-color: rgb(146, 208, 80);
     color: white;
-    width: 200px;
+    width: 100%;
     height: 50px;
     font-size: 20px;
     cursor: pointer;
+    border-radius: 5px;
+    /* box-shadow: inset 3px -3px 20px rgba(0, 0, 0, .4);  */
     /* margin-right: 18px; */
 }
 @media (max-height: 900px){
-    .product-image {
+    .bike-image {
         height: 40vh;
+        
     }
     .product-info {
         font-size: 15px;
@@ -96,7 +111,7 @@
 }
 @media (max-width: 950px){
 
-    .product-image {
+    .bike-image {
         height: 30vh;
     }
 }
@@ -121,7 +136,7 @@
         width: 90%;
         height: auto;
     }
-    .product-image {
+    .bike-image {
         width: 90%;
         height: 20%;
     }

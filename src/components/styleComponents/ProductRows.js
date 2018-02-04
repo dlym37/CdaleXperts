@@ -37,7 +37,7 @@ export default class ProductRows extends Component {
         const bike = this.state.products.map((element, index) => {
             return (
                 <div key={index} className="productBox">
-                    <Link to={`/product/${element.type}/${element.id ? element.id : element.id}`} className='bike-pic'>
+                    <Link to={`/bike/${element.type}/${element.id ? element.id : element.id}`} className='bike-pic'>
                         <img src={element.picture} alt="bikePic" className='picture' />
                     </Link>{/*need to figure out how to pass in the product title in the link source*/}
                     <h4>Title: {element.brand + " " + element.model + " "}
