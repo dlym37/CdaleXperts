@@ -12,6 +12,7 @@ import ComponentBody from './components/styleComponents/ComponentBody';
 import BikesBody from './components/styleComponents/BikesBody';
 import ProductBody from './components/styleComponents/ProductBody';
 import GearBody from './components/styleComponents/GearBody';
+import ContactUs from './components/footerComponents/ContactUs';
 
 
 
@@ -25,6 +26,7 @@ export default (
         <Route path="/myAccount" component={MyAccount}/>
         <Route path="/bikes/:type/:subType" component={ComponentBody}/>
         <Route path="/gear/:type" component={GearBody}/>
+        <Route path='/contact-us' component={ContactUs}/>
         
     </Switch>
 )

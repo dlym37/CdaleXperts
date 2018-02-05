@@ -146,7 +146,6 @@
     border: none;
     font-size: 25px;
     width: 75%;
-    margin-left: 10px;
   }
   .searchField:focus {
       outline: none;

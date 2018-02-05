@@ -1,2 +1,2 @@
 select * from gear
-where id = $1;
+where gearid = $1;

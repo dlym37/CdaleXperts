@@ -33,7 +33,8 @@ module.exports = {
             var tax = 0;
             var prod = resp.map((product, i) => {
                 product[0].qty = req.session.cart[i].qty;
-                subTotal += (product[0].price * product[0].qty)
+                subTotal += product[0].id ? (product[0].price * product[0].qty) : 
+                ((product[0].price - product[0].discount) * product[0].qty)
                 return product[0]
             });
             

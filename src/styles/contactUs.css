@@ -1,0 +1,60 @@
+.contact-pic1 {
+    background: radial-gradient(rgba(0, 0, 0, 0.9),rgba(0, 0, 0, .1), rgba(0, 0, 0, 0.0) ), url('../images/infinite-cycles-shop.jpg') repeat 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    font-family: 'play', sans-serif;
+}
+.contact-text-main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 15px;
+}
+.contact-text-main h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+.contact-text-main p {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 600px;
+}
+.contact-info {
+    padding: 5%;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    width: 90%;
+    height: auto;
+    background-color: #222;
+}
+.logo-stuff {
+    width: 30%;
+    height: 10vh;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-bottom: 10px;    
+}
+.logo1 {
+    background-image: url('../images/purchase.png');
+}
+.logo22 {
+    background-image: url('../images/parts-logo.png');
+    background
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contact-section {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

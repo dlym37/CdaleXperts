@@ -149,16 +149,19 @@ class Cart extends Component {
             return (
                 <div key={i} className="products-list">
                     <div className='product-section'>
-                        <img className='img' src={e.picture} alt='product'/>
+                        <img className={e.id ? 'img' : 'img prod-size'} src={e.picture} alt='product' />
                         <div className='product-info-sub'>
-                            <div className='product-title'>{e.brand + " " + e.model + " "}
+                            <div className='product-title'>{e.id ? e.brand + " " + e.model + " " : e.title}
                                 {e.modelnum ? e.modelnum : e.drivetrain}</div>
-                            <div className='product-price'>Price: {(e.price * e.qty).toFixed(2)}{}</div>
+                            <div className='product-price'>Price: ${e.id ? (e.price * e.qty).toFixed(2) :
+                                ((e.price - e.discount) * e.qty).toFixed(2)}</div>
                             <div className='product-section-sub'>
-                                <div className='qty'>Qty: </div>
                                 <input placeholder={e.qty} onChange={(e) => this.updateQty(e.target.value, i)} />
+                                <div className='qty'>Qty: </div>
                             </div>
-                            <button className='remove-butt' onClick={() => this.removeFromCart(i)}>Remove From Cart</button>
+                            <div className='butt-reverse'>
+                                <button className='remove-butt' onClick={() => this.removeFromCart(i)}>Remove From Cart</button>
+                            </div>
                         </div>
                     </div>
                     <hr className='hr'></hr>
@@ -224,14 +227,14 @@ class Cart extends Component {
                             <h3>Phone:</h3>
                             <input className='inputs' />
                         </div>
-                    <a onClick={this.sendAddress}>
-                        <StripeCheckout
-                            className={this.state.isOpen ? 'none' : 'stripe'}
-                            token={this.onToken}
-                            stripeKey={stripe.pub_key}
-                            amount={this.state.total.toFixed(2) * 100}
-                        />
-                    </a>
+                        <a onClick={this.sendAddress}>
+                            <StripeCheckout
+                                className={this.state.isOpen ? 'none' : 'stripe'}
+                                token={this.onToken}
+                                stripeKey={stripe.pub_key}
+                                amount={this.state.total.toFixed(2) * 100}
+                            />
+                        </a>
                     </div>
                     <h6 className={user.customerid ? 'required' : 'none'}>* required fields</h6>
                     <button className={this.state.isOpen ? 'xButt' : 'none'} onClick={this.handleExit}>X</button>

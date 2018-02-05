@@ -21,10 +21,10 @@ export default class ProductBody extends Component {
     }
     updateCart() {
 
-        const { id, type } = this.state.product[0]
+        const { gearid, type } = this.state.product[0]
         const { quantity } = this.state;
         axios.put('/api/quantity', {
-            productId: id,
+            productId: gearid,
             qty: quantity,
             type: type
         })

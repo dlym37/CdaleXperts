@@ -48,7 +48,7 @@ export default class BikesBody extends Component {
     }
     componentWillReceiveProps(nextProps) {
         const { id, type } = nextProps
-    
+
 
         axios.get('/api/bike/' + type + '/' + id).then(res => {
             // console.log(res);
@@ -74,8 +74,8 @@ export default class BikesBody extends Component {
                                     <div>
                                         <div>Frame: {element.frame}</div>
                                         <br />
-                                        <div>Suspension:
-                                <div className='padding'>
+                                        <div className={element.fork ? '' : 'none'}>Suspension:
+                                            <div className='padding'>
                                                 <div>Front: {element.fork}</div>
                                                 <div>Rear: {element.shock}</div>
                                             </div>

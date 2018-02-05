@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 
 
@@ -53,7 +54,7 @@ class HomeFooter extends Component {
                         <ul>
                             <li>Financing</li>
                             <li>Terms and Conditions</li>
-                            <li>Contact Us</li>
+                           <Link to='/contact-us'> <li>Contact Us</li> </Link>
                             <li>Parts By Model</li>
                         </ul>
                     </div>
