@@ -84,9 +84,9 @@ class HomeNav extends Component {
     test() {
         var blah2 = false;
         this.props.handleSubmit(this.state.search)
-       
-            this.props.history.push('/search');
-        
+
+        this.props.history.push('/search');
+
     }
     render() {
         const { hamClick, user } = this.props
@@ -110,20 +110,32 @@ class HomeNav extends Component {
                                 <div className="sub-menu sub-menu-imgs" >
                                     <div className='backdrop'>
                                         <div className="sub-menu-item">
-                                            <Link to="/bikes/mountain/cross-country" className="sub-menu-item-link"><img className="sub-menu-item-img" src={scalpel} alt='scalpel' /></Link>
-                                            <h1 className='sub-menu-item-title'>Cross-Country</h1>
+                                            <Link to="/bikes/mountain/cross-country" className="sub-menu-item-link">
+                                                <img className="sub-menu-item-img" src={scalpel} alt='scalpel' />
+                                                <h1 className='sub-menu-item-title'>Cross-Country</h1>
+                                                <div className='hover-bar'></div>
+                                            </Link>
                                         </div>
                                         <div className="sub-menu-item">
-                                            <Link to="/bikes/mountain/trail" className="sub-menu-item-link"><img className="sub-menu-item-img" src={habit} alt='habit' /></Link>
-                                            <h1 className='sub-menu-item-title'>Trail</h1>
+                                            <Link to="/bikes/mountain/trail" className="sub-menu-item-link">
+                                                <img className="sub-menu-item-img" src={habit} alt='habit' />
+                                                <h1 className='sub-menu-item-title'>Trail</h1>
+                                                <div className='hover-bar'></div>
+                                            </Link>
                                         </div>
                                         <div className="sub-menu-item">
-                                            <Link to="/bikes/mountain/all-mountain" className="sub-menu-item-link"><img className="sub-menu-item-img" src={trigger} alt='trigger' /></Link>
-                                            <h1 className='sub-menu-item-title'>All-Mountain</h1>
+                                            <Link to="/bikes/mountain/all-mountain" className="sub-menu-item-link">
+                                                <img className="sub-menu-item-img" src={trigger} alt='trigger' />
+                                                <h1 className='sub-menu-item-title'>All-Mountain</h1>
+                                                <div className='hover-bar'></div>
+                                            </Link>
                                         </div>
                                         <div className="sub-menu-item">
-                                            <Link to="/bikes/mountain/enduro" className="sub-menu-item-link"><img className="sub-menu-item-img" src={jekyll} alt='jekyll' /></Link>
-                                            <h1 className='sub-menu-item-title'>Enduro</h1>
+                                            <Link to="/bikes/mountain/enduro" className="sub-menu-item-link">
+                                                <img className="sub-menu-item-img" src={jekyll} alt='jekyll' />
+                                                <h1 className='sub-menu-item-title'>Enduro</h1>
+                                                <div className='hover-bar'></div>
+                                            </Link>
                                         </div>
                                     </div>
 
@@ -135,20 +147,32 @@ class HomeNav extends Component {
                                 <div className="sub-menu sub-menu-imgs" >
                                     <div className='backdrop'>
                                         <div className="sub-menu-item">
-                                            <Link to="/bikes/road/endurance" className="sub-menu-item-link"><img className="sub-menu-item-img" src={synapse} alt='synapse' /></Link>
-                                            <h1 className='sub-menu-item-title'>Endurance</h1>
+                                            <Link to="/bikes/road/endurance" className="sub-menu-item-link">
+                                                <img className="sub-menu-item-img" src={synapse} alt='synapse' />
+                                                <h1 className='sub-menu-item-title'>Endurance</h1>
+                                                <div className='hover-bar'></div>
+                                            </Link>
                                         </div>
                                         <div className="sub-menu-item">
-                                            <Link to="/bikes/road/race-elite" className="sub-menu-item-link"><img className="sub-menu-item-img" src={supersix} alt='supersix' /></Link>
-                                            <h1 className='sub-menu-item-title'>Race Elite</h1>
+                                            <Link to="/bikes/road/race-elite" className="sub-menu-item-link">
+                                                <img className="sub-menu-item-img" src={supersix} alt='supersix' />
+                                                <h1 className='sub-menu-item-title'>Race Elite</h1>
+                                                <div className='hover-bar'></div>
+                                            </Link>
                                         </div>
                                         <div className="sub-menu-item">
-                                            <Link to="/bikes/road/race" className="sub-menu-item-link"><img className="sub-menu-item-img" src={caad12} alt='caad12' /></Link>
-                                            <h1 className='sub-menu-item-title'>Race</h1>
+                                            <Link to="/bikes/road/race" className="sub-menu-item-link">
+                                                <img className="sub-menu-item-img" src={caad12} alt='caad12' />
+                                                <h1 className='sub-menu-item-title'>Race</h1>
+                                                <div className='hover-bar'></div>
+                                            </Link>
                                         </div>
                                         <div className="sub-menu-item">
-                                            <Link to="/bikes/road/other" className="sub-menu-item-link"><img className="sub-menu-item-img" src={slate} alt='slate' /></Link>
-                                            <h1 className='sub-menu-item-title'>Other</h1>
+                                            <Link to="/bikes/road/other" className="sub-menu-item-link">
+                                                <img className="sub-menu-item-img" src={slate} alt='slate' />
+                                                <h1 className='sub-menu-item-title'>Other</h1>
+                                                <div className='hover-bar'></div>
+                                            </Link>
                                         </div>
                                     </div>
 
@@ -160,16 +184,25 @@ class HomeNav extends Component {
                                 <div className="sub-menu sub-menu-imgs" >
                                     <div className='backdrop'>
                                         <div className="sub-menu-item">
-                                            <Link to="/gear" className="sub-menu-item-link"><img className="sub-menu-item-img" src={gear} alt='gear' /></Link>
-                                            <h1 className='sub-menu-item-title'>Gear</h1>
+                                            <Link to="/gear" className="sub-menu-item-link">
+                                                <img className="sub-menu-item-img" src={gear} alt='gear' />
+                                                <h1 className='sub-menu-item-title'>Gear</h1>
+                                                <div className='hover-bar'></div>
+                                            </Link>
                                         </div>
                                         <div className="sub-menu-item">
-                                            <Link to="/gear" className="sub-menu-item-link"><img className="sub-menu-item-img" src={clothing} alt='clothing' /></Link>
-                                            <h1 className='sub-menu-item-title'>Clothes/Apparel</h1>
+                                            <Link to="/gear" className="sub-menu-item-link">
+                                                <img className="sub-menu-item-img" src={clothing} alt='clothing' />
+                                                <h1 className='sub-menu-item-title'>Clothes/Apparel</h1>
+                                                <div className='hover-bar'></div>
+                                            </Link>
                                         </div>
                                         <div className="sub-menu-item">
-                                            <Link to="/gear" className="sub-menu-item-link"><img className="sub-menu-item-img" src={forBike} alt='forBike' /></Link>
-                                            <h1 className='sub-menu-item-title'>For Bike</h1>
+                                            <Link to="/gear" className="sub-menu-item-link">
+                                                <img className="sub-menu-item-img" src={forBike} alt='forBike' />
+                                                <h1 className='sub-menu-item-title'>For Bike</h1>
+                                                <div className='hover-bar'></div>
+                                            </Link>
                                         </div>
                                     </div>
 
