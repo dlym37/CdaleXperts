@@ -14,6 +14,6 @@ describe('testing filtering', () => {
         fns.max = 300
         const products = prod.filter(fns.handleFiltering)
         console.log(products);
-        expect(prod.length).toEqual(9)
+        expect(products.length).toEqual(9)
     })
 })
