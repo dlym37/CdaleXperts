@@ -79,18 +79,14 @@ class HomeNav extends Component {
 
     componentDidMount() {
         this.props.getUserInfo();
-
     }
+    
     test() {
-        var blah2 = false;
-        this.props.handleSubmit(this.state.search)
-
-        this.props.history.push('/search');
-
+        this.props.handleSubmit(this.props, this.state.search)
     }
+
     render() {
         const { hamClick, user } = this.props
-        // console.log('render user', user);
         return (
             <div>
                 <div className="App">

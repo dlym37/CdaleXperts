@@ -46,7 +46,6 @@ class HomeBody extends Component {
 
                 <div className={hamClick ? 'main-pic opp' : 'main-pic'} className={this.state.spread ? 'main-pic bike-click' : 'main-pic'}>
                     <div className={this.state.spread ? 'scalpel scalpel-click' : 'scalpel'}>
-                        { /* <img src={scalpel2} alt='scalpel 2' /> */}
                         <div className={this.state.spread ? "front-wheel front-wheel-click" : 'front-wheel'}>
                             <img src={frontWheelFork} alt='front wheel' className='size2' />
                         </div>

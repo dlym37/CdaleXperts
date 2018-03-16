@@ -15,7 +15,6 @@ class Search extends Component {
         this.props.searchData;
     }
     render() {
-        console.log('search data', this.props.searchData);
         const products = this.props.searchData.map((e, i) => {
             return (
                 <div key={i} className='search-box'>
@@ -42,7 +41,6 @@ class Search extends Component {
 }
 
 function mapStateToProps(state){
-    console.log('what????');
     return {
         searchData: state.searchData
     }

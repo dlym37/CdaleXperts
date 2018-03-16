@@ -9,13 +9,11 @@ module.exports ={
     search_products: (req, res) => {
         const db = req.app.get('db');
         const request = req.query.value;
-        console.log(request);
         const mountain = db.search_mountain([`%${request}%`]);
         const road = db.search_road([`%${request}%`]);
         const gear = db.search_gear([`%${request}%`]);
         
         Promise.all([mountain, road, gear]).then((response) => {
-            console.log('response', response);
             var mtnInfo = response[0].map((e, i) => {
                 return {
                     id : e.id,

@@ -54,7 +54,6 @@ export default class GearRows extends Component {
 
 
         axios.get('/api/gear/' + type).then(res => {
-            console.log(res);
             this.setState({
                 products: res.data
             })
@@ -64,7 +63,6 @@ export default class GearRows extends Component {
         const { type } = nextProps
 
         axios.get('/api/' + type).then(res => {
-            console.log(res);
             this.setState({
                 products: res.data
             })

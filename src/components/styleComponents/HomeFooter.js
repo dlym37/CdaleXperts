@@ -11,14 +11,6 @@ class HomeFooter extends Component {
 
     render() {
 
-        // const showing= 
-        // {
-        //     display: {
-        //         display: true},
-        //     doNot: {
-        //         display: false}
-        //     }
-
         return (
 
             <footer className={this.props.show ? 'footer click2' : 'footer'}>

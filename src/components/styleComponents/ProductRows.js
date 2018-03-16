@@ -16,7 +16,6 @@ export default class ProductRows extends Component {
 
 
         axios.get('/api/' + type + '/' + subType).then(res => {
-            console.log(res);
             this.setState({
                 products: res.data
             })
@@ -26,7 +25,6 @@ export default class ProductRows extends Component {
         const { type, subType } = nextProps
 
         axios.get('/api/' + type + '/' + subType).then(res => {
-            console.log(res);
             this.setState({
                 products: res.data
             })

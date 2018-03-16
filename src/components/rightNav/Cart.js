@@ -29,21 +29,18 @@ class Cart extends Component {
     //stripe stuff
     onToken = (token) => {
         token.card = void 0;
-        console.log('token', token);
         axios.post('/api/payment', { token, amount: 100 }).then(response => {
             alert('we are in business')
         });
     }
 
     removeFromCart(i) {
-        console.log(i);
         axios.delete('/api/cart/remove', {
             data: {
                 index: i
             }
         }).then(resp => {
             axios.get('/api/cart/data').then(({ data }) => {
-                // console.log(data);
                 this.setState({
                     products: data.prod,
                     subTotal: data.subTotal,
@@ -62,7 +59,6 @@ class Cart extends Component {
             index: ind
         }).then(resp => {
             axios.get('/api/cart/data').then(({ data }) => {
-                // console.log(data);
                 this.setState({
                     products: data.prod,
                     subTotal: data.subTotal,

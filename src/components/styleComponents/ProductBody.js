@@ -17,7 +17,6 @@ export default class ProductBody extends Component {
         this.setState({
             quantity: qty
         })
-        console.log(this.state.product[0].id);
     }
     updateCart() {
 
@@ -29,18 +28,16 @@ export default class ProductBody extends Component {
             type: type
         })
     }
-    // alert(){
-    //     alert('CONTINUE TO CHECKOUT, AND LETS GO SHRED!');
-    // }
+    alert(){
+        alert('CONTINUE TO CHECKOUT, AND LETS GO SHRED!');
+    }
 
 
 
     componentDidMount() {
         const { id, type } = this.props.match.params
-        console.log('anything');
 
         axios.get('/api/product/' + type + '/' + id).then(res => {
-            console.log(res);
             this.setState({
                 product: res.data
             })
@@ -51,24 +48,21 @@ export default class ProductBody extends Component {
 
 
         axios.get('/api/product/' + type + '/' + id).then(res => {
-            // console.log(res);
             this.setState({
                 product: res.data
             })
         })
     }
 
-
     render() {
         var productInfo = this.state.product.map((element, index) => {
-            // console.log(element);
             return (
                 <div key={index}>
                     <div className='title-of-bike'>{element.title}</div>
                     <div className='title-of-bike'>Price: ${element.price - element.discount}</div>
                     <div key={index} className='tree-pic flex2'>
                         <div className='flex'>
-                            <img src={element.picture} className='product-image' />
+                            <img src={element.picture} alt='product' className='product-image' />
                             <div className='info-check'>
                                 <div className='product-info'>
                                     <div>

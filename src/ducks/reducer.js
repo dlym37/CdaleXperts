@@ -12,10 +12,10 @@ const GET_USER_INFO = 'GET_USER_INFO';
 const CHANGE_ADDRESS = 'CHANGE ADDRESS';
 const HANDLE_SUBMIT = 'HANDLE_SUBMIT';
 
-export function handleSubmit(val) {
-   var data= axios.get('/api/search?value=' + val).then(res => {
-       console.log('search results', res.data);
-       return res.data;  
+export function handleSubmit(url, val) {
+    var data = axios.get('/api/search?value=' + val).then(res => {
+        url.history.push('/search');
+        return res.data;
     })
     return {
         type: HANDLE_SUBMIT,
@@ -25,11 +25,11 @@ export function handleSubmit(val) {
 
 
 export function changeHamClick() {
-        if(initialState.hamClick === false){
-            initialState.hamClick = true;
-        } else {
-            initialState.hamClick = false;
-        }
+    if (initialState.hamClick === false) {
+        initialState.hamClick = true;
+    } else {
+        initialState.hamClick = false;
+    }
     return {
         type: HAM_CLICK,
         payload: initialState.hamClick
@@ -37,9 +37,9 @@ export function changeHamClick() {
 }
 
 export function changeAddress() {
-    
+
     const guest = {
-        customerid : 'guest'
+        customerid: 'guest'
     }
     return {
         type: CHANGE_ADDRESS,
@@ -47,9 +47,8 @@ export function changeAddress() {
     }
 }
 
-export function getUserInfo(){
-    let userData = axios.get('/auth/me').then( res => {
-        console.log('reducer user', res.data);        
+export function getUserInfo() {
+    let userData = axios.get('/auth/me').then(res => {
         return res.data;
     })
     return {
@@ -61,14 +60,14 @@ export function getUserInfo(){
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         case HAM_CLICK:
-            return Object.assign({}, state, {hamClick: action.payload});
+            return Object.assign({}, state, { hamClick: action.payload });
         case GET_USER_INFO + '_FULFILLED':
-            return Object.assign({}, state, {user: action.payload});
+            return Object.assign({}, state, { user: action.payload });
         case CHANGE_ADDRESS:
-            return Object.assign({}, state, {user: action.payload});
+            return Object.assign({}, state, { user: action.payload });
         case HANDLE_SUBMIT + '_FULFILLED':
             console.log("actioning", action.payload)
-            return Object.assign({}, state, {searchData: action.payload});        
+            return Object.assign({}, state, { searchData: action.payload });
         default:
             return state;
     }

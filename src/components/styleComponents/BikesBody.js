@@ -17,7 +17,6 @@ export default class BikesBody extends Component {
         this.setState({
             quantity: qty
         })
-        console.log(this.state.product[0].id);
     }
     updateCart() {
 
@@ -29,18 +28,16 @@ export default class BikesBody extends Component {
             type: type
         })
     }
-    // alert(){
-    //     alert('CONTINUE TO CHECKOUT, AND LETS GO SHRED!');
-    // }
+    alert(){
+        alert('CONTINUE TO CHECKOUT, AND LETS GO SHRED!');
+    }
 
 
 
     componentDidMount() {
         const { id, type } = this.props.match.params
-        console.log('anything');
 
         axios.get('/api/bike/' + type + '/' + id).then(res => {
-            console.log(res);
             this.setState({
                 product: res.data
             })
@@ -51,7 +48,6 @@ export default class BikesBody extends Component {
 
 
         axios.get('/api/bike/' + type + '/' + id).then(res => {
-            // console.log(res);
             this.setState({
                 product: res.data
             })
@@ -61,14 +57,13 @@ export default class BikesBody extends Component {
 
     render() {
         var productInfo = this.state.product.map((element, index) => {
-            // console.log(element);
             return (
                 <div key={index}>
                     <div className='title-of-bike'>{element.brand + ' ' + element.model + ' '} {element.modelnum ? element.modelnum : element.drivetrain}</div>
                     <div className='title-of-bike'>Price: ${element.price}</div>
                     <div key={index} className='tree-pic flex2'>
                         <div className='flex'>
-                            <img src={element.picture} className='bike-image' />
+                            <img src={element.picture} alt='bike' className='bike-image' />
                             <div className='info-check'>
                                 <div className='product-info'>
                                     <div>
